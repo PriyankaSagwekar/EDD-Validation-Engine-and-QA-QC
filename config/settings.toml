@@ -1,0 +1,21 @@
+# Connection and path settings for the EDD QA/QC engine.
+# Environment variables EDDQC_SERVER and EDDQC_DATABASE override the values below.
+
+[database]
+server = ".\\SQLEXPRESS"
+database = "EnvDataQC"
+driver = "ODBC Driver 17 for SQL Server"
+trusted_connection = true
+
+[paths]
+incoming = "data/incoming"
+processed = "data/processed"
+rejected = "data/rejected"
+reports = "data/reports"
+answer_keys = "data/answer_keys"
+gis = "data/gis"
+sql = "sql"
+
+[validation]
+# Batches with a larger share of held rows are reported as NO-GO.
+max_held_fraction = 0.10

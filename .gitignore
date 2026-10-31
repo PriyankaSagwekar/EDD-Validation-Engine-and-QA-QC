@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+~$*.xlsx
+interview_prep/
+
+# Generated data: keep reports, GIS export and one sample EDD
+data/incoming/
+data/processed/*
+!data/processed/FAL_EDD_2601_GW.csv
+data/rejected/
+data/answer_keys/

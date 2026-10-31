@@ -1,0 +1,357 @@
+{
+  "type": "FeatureCollection",
+  "name": "location_qc_status",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::27700"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430250.0,
+          433360.0
+        ]
+      },
+      "properties": {
+        "location_code": "BH01",
+        "location_type": "BH",
+        "final_depth_m": 6.0,
+        "n_samples": 6,
+        "n_results": 288,
+        "n_held": 1,
+        "n_qualified": 0,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 4,
+        "last_sample_date": "2026-06-08 11:17:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430310.0,
+          433280.0
+        ]
+      },
+      "properties": {
+        "location_code": "BH02",
+        "location_type": "BH",
+        "final_depth_m": 6.0,
+        "n_samples": 6,
+        "n_results": 287,
+        "n_held": 96,
+        "n_qualified": 2,
+        "n_critical_exceptions": 2,
+        "n_warning_exceptions": 6,
+        "last_sample_date": "2026-06-09 09:29:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430500.0,
+          433350.0
+        ]
+      },
+      "properties": {
+        "location_code": "BH03",
+        "location_type": "BH",
+        "final_depth_m": 6.0,
+        "n_samples": 10,
+        "n_results": 448,
+        "n_held": 48,
+        "n_qualified": 14,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 5,
+        "last_sample_date": "2026-06-09 12:45:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430120.0,
+          433410.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW01",
+        "location_type": "MW",
+        "final_depth_m": 12.0,
+        "n_samples": 5,
+        "n_results": 221,
+        "n_held": 2,
+        "n_qualified": 4,
+        "n_critical_exceptions": 2,
+        "n_warning_exceptions": 6,
+        "last_sample_date": "2026-09-22 09:34:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430215.0,
+          433380.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW02",
+        "location_type": "MW",
+        "final_depth_m": 12.0,
+        "n_samples": 5,
+        "n_results": 275,
+        "n_held": 1,
+        "n_qualified": 18,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 7,
+        "last_sample_date": "2026-09-22 11:10:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430290.0,
+          433305.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW03",
+        "location_type": "MW",
+        "final_depth_m": 10.0,
+        "n_samples": 4,
+        "n_results": 220,
+        "n_held": 1,
+        "n_qualified": 13,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 4,
+        "last_sample_date": "2026-09-22 13:45:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430340.0,
+          433260.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW04",
+        "location_type": "MW",
+        "final_depth_m": 10.0,
+        "n_samples": 4,
+        "n_results": 220,
+        "n_held": 1,
+        "n_qualified": 6,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 4,
+        "last_sample_date": "2026-09-22 15:12:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430395.0,
+          433210.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW05",
+        "location_type": "MW",
+        "final_depth_m": 10.0,
+        "n_samples": 7,
+        "n_results": 385,
+        "n_held": 1,
+        "n_qualified": 78,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 9,
+        "last_sample_date": "2026-09-23 09:05:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430180.0,
+          433250.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW06",
+        "location_type": "MW",
+        "final_depth_m": 15.0,
+        "n_samples": 5,
+        "n_results": 246,
+        "n_held": 1,
+        "n_qualified": 102,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 9,
+        "last_sample_date": "2026-09-23 11:22:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430470.0,
+          433380.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW07",
+        "location_type": "MW",
+        "final_depth_m": 15.0,
+        "n_samples": 6,
+        "n_results": 300,
+        "n_held": 14,
+        "n_qualified": 55,
+        "n_critical_exceptions": 2,
+        "n_warning_exceptions": 9,
+        "last_sample_date": "2026-09-23 13:00:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430540.0,
+          433330.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW08",
+        "location_type": "MW",
+        "final_depth_m": 15.0,
+        "n_samples": 4,
+        "n_results": 220,
+        "n_held": 0,
+        "n_qualified": 45,
+        "n_critical_exceptions": 0,
+        "n_warning_exceptions": 6,
+        "last_sample_date": "2026-07-15 15:05:00",
+        "qc_rag": "AMBER"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430610.0,
+          433270.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW09",
+        "location_type": "MW",
+        "final_depth_m": 12.0,
+        "n_samples": 7,
+        "n_results": 355,
+        "n_held": 2,
+        "n_qualified": 72,
+        "n_critical_exceptions": 2,
+        "n_warning_exceptions": 7,
+        "last_sample_date": "2026-09-24 09:42:00",
+        "qc_rag": "RED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430075.0,
+          433290.0
+        ]
+      },
+      "properties": {
+        "location_code": "MW10",
+        "location_type": "MW",
+        "final_depth_m": 12.0,
+        "n_samples": 6,
+        "n_results": 300,
+        "n_held": 0,
+        "n_qualified": 39,
+        "n_critical_exceptions": 0,
+        "n_warning_exceptions": 9,
+        "last_sample_date": "2026-09-24 11:13:00",
+        "qc_rag": "AMBER"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430160.0,
+          433330.0
+        ]
+      },
+      "properties": {
+        "location_code": "TP01",
+        "location_type": "TP",
+        "final_depth_m": 3.0,
+        "n_samples": 5,
+        "n_results": 240,
+        "n_held": 0,
+        "n_qualified": 7,
+        "n_critical_exceptions": 0,
+        "n_warning_exceptions": 4,
+        "last_sample_date": "2026-06-10 09:35:00",
+        "qc_rag": "AMBER"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          430420.0,
+          433300.0
+        ]
+      },
+      "properties": {
+        "location_code": "TP02",
+        "location_type": "TP",
+        "final_depth_m": 3.0,
+        "n_samples": 5,
+        "n_results": 240,
+        "n_held": 7,
+        "n_qualified": 0,
+        "n_critical_exceptions": 1,
+        "n_warning_exceptions": 4,
+        "last_sample_date": "2026-06-10 11:46:00",
+        "qc_rag": "RED"
+      }
+    }
+  ]
+}

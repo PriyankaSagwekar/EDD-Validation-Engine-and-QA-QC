@@ -14,6 +14,7 @@ rejected = "data/rejected"
 reports = "data/reports"
 answer_keys = "data/answer_keys"
 gis = "data/gis"
+ags = "data/ags"
 sql = "sql"
 
 [validation]

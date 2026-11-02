@@ -220,6 +220,26 @@ SCREENING_SETS = {
     },
 }
 
+# AGS 4.2 ELRG_CODE for analytes whose code is not their own CAS number (checked against the
+# AGS ELRG code list). Every other analyte uses its CAS number, which the list approves.
+AGS_ELRG_CODE = {
+    "179601-23-1": "P1374",       # m,p-Xylenes
+    "BTEX-TOT": "P1330",          # Total BTEX
+    "TPH-ALI-C10C12": "P1410",    # Aliphatics >C10-12
+    "TPH-ALI-C12C16": "P1411",
+    "TPH-ALI-C16C21": "P1412",
+    "TPH-ALI-C21C35": "P1413",
+    "TPH-ARO-C10C12": "P1357",    # Aromatics >C10-12
+    "TPH-ARO-C12C16": "P1358",
+    "TPH-ARO-C16C21": "P1359",
+    "TPH-ARO-C21C35": "P1360",
+    "TPH-TOT-C10C40": "P1404",    # TPH >C10-40
+}
+# Not in the AGS list: declared in the file's ABBR group as a project code.
+AGS_PROJECT_CODES = {"84-15-1": "o-Terphenyl (surrogate)"}
+# AGS units are case-sensitive.
+AGS_UNIT = {"ug/L": "ug/l", "mg/kg": "mg/kg", "%": "%"}
+
 VALID_VALUES = {
     "sample_type": {"N": "Normal field sample", "FD": "Field duplicate", "FB": "Field blank",
                     "EB": "Equipment blank", "TB": "Trip blank", "MB": "Method blank",

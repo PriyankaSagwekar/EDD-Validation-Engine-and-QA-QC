@@ -116,6 +116,18 @@ def test_reporting_views_and_gis_package(settings, tmp_path):
     with pytest.raises(ValueError):
         build_screening_report(engine, "NOPE", tmp_path / "reports")
 
+    from eddqc.ags.export import export_from_db
+    ags_path, ags_issues = export_from_db(engine, tmp_path / "ags", include_lab_qc=True)
+    assert not ags_issues
+    promoted = q("SELECT COUNT(*) AS n FROM dbo.dt_Result").n.iloc[0]
+    ags_batch = load_file(engine, ags_path)
+    staged = q(f"SELECT source_row_no FROM dbo.stg_Result WHERE batch_id = {ags_batch}")
+    assert len(staged) == promoted and staged.source_row_no.min() > 20   # AGS line numbers
+    reval = validate_batch(engine, ags_batch)
+    assert reval.counts["critical"] == 0 and reval.counts["held"] == 0
+    with pytest.raises(DuplicateFileError):
+        load_file(engine, ags_path)
+
     gpkg = export_package(engine, tmp_path / "gis")
     layers = dict(pyogrio.list_layers(gpkg))
     assert set(layers) == set(PACKAGE_ITEMS)

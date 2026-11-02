@@ -75,7 +75,7 @@ def cmd_run_all(args, s):
 
     eng = _engine(s)
     folder = Path(args.folder) if args.folder else s.paths["incoming"]
-    files = sorted(p for p in folder.iterdir() if p.suffix.lower() in (".csv", ".xlsx"))
+    files = sorted(p for p in folder.iterdir() if p.suffix.lower() in (".csv", ".xlsx", ".ags"))
     if not files:
         print(f"No EDD files in {folder}")
         return 0
@@ -126,6 +126,25 @@ def cmd_screen(args, s):
         print(f"Wrote {build_screening_report(eng, code, s.paths['reports'])}")
 
 
+def cmd_ags_export(args, s):
+    from .ags.export import export_from_db
+    out = Path(args.out) if args.out else s.paths["ags"]
+    path, issues = export_from_db(_engine(s), out, batch=args.batch, include_lab_qc=args.include_lab_qc)
+    print(f"Wrote {path} (AGS 4.2, {len(issues)} checker warning(s))")
+    for i in issues:
+        print(f"  {i}")
+
+
+def cmd_ags_check(args, s):
+    from .ags import check_text, errors
+    _, issues = check_text(Path(args.file).read_bytes().decode("utf-8", errors="replace"))
+    for i in issues:
+        print(i)
+    n = len(errors(issues))
+    print(f"{args.file}: {n} error(s), {len(issues) - n} warning(s)")
+    return 1 if n else 0
+
+
 def cmd_status(args, s):
     from .db import read_sql
     df = read_sql(_engine(s), "SELECT batch_id, file_name, status, row_count, rows_promoted, rows_held, "
@@ -170,6 +189,20 @@ def build_parser() -> argparse.ArgumentParser:
     x = sub.add_parser("screen", help="write the screening report against UK criteria (illustrative values)")
     x.add_argument("--set", help="criteria set code, e.g. DWS, EQS-FW, GAC-RES (default: all sets)")
     x.set_defaults(func=cmd_screen)
+
+    x = sub.add_parser("ags-export", help="export promoted results as an AGS 4.2 file")
+    x.add_argument("--batch", type=int, help="one batch only (default: all promoted data)")
+    x.add_argument("--include-lab-qc", action="store_true", help="also export method blanks and LCS")
+    x.add_argument("--out", help="output folder (default data/ags)")
+    x.set_defaults(func=cmd_ags_export)
+
+    x = sub.add_parser("ags-check", help="check an AGS file against the AGS 4.2 rules and code lists")
+    x.add_argument("file")
+    x.set_defaults(func=cmd_ags_check)
+
+    x = sub.add_parser("ags-import", help="load an AGS file into staging (same as load)")
+    x.add_argument("file")
+    x.set_defaults(func=cmd_load)
 
     sub.add_parser("status", help="list loaded batches").set_defaults(func=cmd_status)
     return p

@@ -27,15 +27,34 @@ def _norm(col: str) -> str:
     return ALIASES.get(c, c)
 
 
+def read_ags(path: Path) -> pd.DataFrame:
+    """An AGS 4.2 file as EDD rows. Files that fail the AGS checks are rejected before load."""
+    from .ags import ags_to_edd, check_text, errors
+    groups, issues = check_text(path.read_bytes().decode("utf-8", errors="replace"))
+    if errors(issues):
+        listed = "; ".join(str(i) for i in errors(issues)[:5])
+        raise EDDFormatError(f"{path.name} fails {len(errors(issues))} AGS check(s): {listed}")
+    try:
+        return ags_to_edd(groups)
+    except ValueError as e:
+        raise EDDFormatError(f"{path.name}: {e}") from e
+
+
 def read_edd(path: Path) -> tuple[pd.DataFrame, list[str]]:
     """Return the EDD as text columns in canonical order, plus a list of ignored columns."""
     suffix = path.suffix.lower()
+    if suffix == ".ags":
+        df = read_ags(path)
+        rows = df.pop("source_row_no").astype(int)
+        df = df.astype(str).apply(lambda s: s.str.strip())
+        df.insert(0, "source_row_no", rows)               # line of the ELRG row in the AGS file
+        return df.reset_index(drop=True), []
     if suffix == ".csv":
         df = pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
     elif suffix in (".xlsx", ".xls"):
         df = pd.read_excel(path, dtype=str, keep_default_na=False)
     else:
-        raise EDDFormatError(f"Unsupported file type {suffix}; expected .csv or .xlsx")
+        raise EDDFormatError(f"Unsupported file type {suffix}; expected .csv, .xlsx or .ags")
     df.columns = [_norm(c) for c in df.columns]
     missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
     if missing:

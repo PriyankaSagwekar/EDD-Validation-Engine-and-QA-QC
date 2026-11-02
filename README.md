@@ -1,10 +1,12 @@
 # Automated Environmental QA/QC & EDD Validation Engine
 
-A Python and SQL Server pipeline that checks laboratory Electronic Data Deliverables (EDDs) before they reach a master environmental database. It loads raw lab files (CSV or Excel) into staging, runs 36 automated QA/QC rules, writes a formatted QA/QC Exception Report, and only promotes data that passes the gate.
+A Python and SQL Server pipeline that checks laboratory Electronic Data Deliverables (EDDs) before they reach a master environmental database. It loads raw lab files (CSV, Excel or AGS 4.2) into staging, runs 36 automated QA/QC rules, writes a formatted QA/QC Exception Report, and only promotes data that passes the gate. Validated data is then screened against UK criteria, exported as AGS 4.2, packaged for ArcGIS and published to a dashboard.
+
+**Dashboard:** [EDD QA/QC Dashboard](https://github.com/PriyankaSagwekar/EDD-QC-Dashboard) (Streamlit; the live link is in that repo once deployed).
 
 The workflow mirrors how EDDs are handled in systems such as EQuIS on ground investigation and groundwater monitoring projects. The data model follows the same location, sample, test and result structure.
 
-**Skills shown:** EDD management, QA/QC data validation, SQL Server (T-SQL, views, stored procedures), Python automation (pandas, SQLAlchemy), reporting, GIS-ready outputs, automated testing.
+**Skills shown:** EDD management, QA/QC data validation, SQL Server (T-SQL, views, stored procedures), Python automation (pandas, SQLAlchemy), AGS 4.2 data transfer, screening against UK criteria, GIS (GeoPackage in British National Grid, ArcGIS), dashboards (Streamlit), automated testing.
 
 > The site, laboratory and all data are fictional and simulated. Screening criteria are illustrative values only and must not be used for real assessment.
 
@@ -14,7 +16,7 @@ The workflow mirrors how EDDs are handled in systems such as EQuIS on ground inv
 
 ```mermaid
 flowchart LR
-    A[Lab EDD<br/>CSV / Excel] --> B[Loader<br/>header mapping,<br/>duplicate-file check]
+    A[Lab EDD<br/>CSV / Excel / AGS 4.2] --> B[Loader<br/>header mapping,<br/>AGS checks,<br/>duplicate-file check]
     B --> C[(Staging<br/>stg_Batch, stg_Result)]
     C --> D[Validation engine<br/>36 rules, 12 families]
     D --> E[(qc_Exception<br/>qc_Result_Qualifier)]
@@ -23,7 +25,10 @@ flowchart LR
     G -- pass / qualified --> H[(Master<br/>dt_Sample, dt_Test,<br/>dt_Result)]
     G -- held --> C
     G -- NO-GO --> I[Rejected,<br/>back to lab]
-    H --> J[GIS export<br/>GeoJSON, EPSG:27700]
+    H --> J[GIS package<br/>GeoPackage, EPSG:27700<br/>to ArcGIS]
+    H --> K[Screening report<br/>DWS, EQS, GAC]
+    H --> L[AGS 4.2 export<br/>ELRG]
+    H --> M[Reporting views] --> N[DuckDB snapshot<br/>to Streamlit dashboard]
 ```
 
 1. **Load.** The loader reads the EDD, maps common header variants to standard names, checks required columns, and refuses a file that was already loaded. Every row lands in staging as text, exactly as received.
@@ -31,6 +36,7 @@ flowchart LR
 3. **Qualify.** Each failed check logs an exception against the row that triggered it. It can also apply a validator qualifier to associated results. For example, a failed surrogate qualifies every target result in that sample.
 4. **Report.** A formatted Excel workbook gives the import decision, counts by rule, a sheet per rule family, every qualified result, and a promoted-versus-held summary per sample.
 5. **Gate.** The stored procedure `usp_Promote_Batch` moves passed and qualified rows to the master tables in one transaction. Rows with critical failures or an R (rejected) qualifier stay in staging. If more than 10% of a file is held, the batch is NO-GO and goes back to the laboratory.
+6. **Use the validated data.** Usable results are screened against criteria sets, exported as AGS 4.2, written to a GeoPackage for ArcGIS, and copied to a DuckDB snapshot that the dashboard reads.
 
 ---
 
@@ -93,7 +99,16 @@ erDiagram
 | QC (`qc_`) | Rule, Run, Exception, Result_Qualifier | Rule catalogue, audit trail of each validation run, every finding and every qualifier applied |
 | Master (`dt_`) | Sample, Receipt, Test, Result | Validated data only |
 
-Reporting views: `vw_Exception_Summary`, `vw_Location_QC_Status` (red, amber or green per location, for GIS) and `vw_Result_Validated`.
+Reporting views (`sql/07`, `sql/09`). The Excel reports, GIS package and dashboard all read these, so every output shows the same numbers.
+
+| View | Answers |
+|---|---|
+| `vw_Exception_Summary`, `vw_Exception_Detail` | Exceptions by batch, rule and severity; every finding of the latest run |
+| `vw_Batch_Summary` | Rows passed, qualified and held per EDD; held fraction against the NO-GO limit |
+| `vw_Qualifier_Summary`, `vw_Held_Rows` | Final qualifiers on promoted results; rows kept in staging and why |
+| `vw_Location_QC_Status` | Red, amber or green per location, with British National Grid coordinates |
+| `vw_Result_Validated`, `vw_Result_Timeseries` | Validated master results; plot-ready series with non-detects at the RL and the criterion |
+| `vw_Screening_Exceedance`, `vw_Screening_Summary`, `vw_Screening_Location` | Each usable result against each criteria set; worst result per location and analyte; worst exceedance per location |
 
 ---
 
@@ -115,6 +130,24 @@ The data are generated clean first, then specific defects are injected. Each inj
 | FAL_EDD_2609_GW.csv | 841 | 757 | 28 | 56 | Partial |
 
 All 53 injected defects were caught. Clean files produce zero exceptions. Master row counts reconcile exactly with promoted staging rows.
+
+---
+
+## Using the validated data
+
+### Screening report
+`python -m eddqc screen` writes `data/reports/Screening_<set>.xlsx` for each criteria set: an illustrative UK drinking water standard (DWS) and freshwater EQS for groundwater, and a residential GAC for soil. Only usable results for primary samples are screened. Each result is classed as **Exceeds**, **Below**, **ND compliant**, or **ND inconclusive** when the reporting limit is above the criterion, because such a non-detect cannot show compliance. The primary set for each matrix also drives rule DET-04 and the criterion line on charts.
+
+### AGS 4.2
+`python -m eddqc ags-export` writes the promoted data as AGS 4.2: PROJ, TRAN, TYPE, UNIT, ABBR, DICT, LOCA, MONG, SAMP, CHOC and ELRG groups (ERES was removed in 4.2). Determinand codes, abbreviations and units follow the AGS code lists, for example ELRG_CODE P1374 for m,p-xylenes and the case-sensitive unit `ug/l`. Cooler temperature, custody seal, pH, extraction date and spike data travel as user-defined headings declared in DICT. Every file is checked against the AGS 4.2 rules before it is written.
+
+`.ags` files are also accepted as input (`load`, `ags-import`, `run-all`). They are checked first, converted to EDD rows and run through the same 36 rules, and exceptions point at the line in the AGS file. `python -m eddqc ags-check <file>` checks any AGS file. The official AGS code lists are a registered-user download, so they are not in this repo: place them in `docs/reference/ags/` to check against them, otherwise a built-in subset is used.
+
+### GIS package and ArcGIS
+`gis-export` (also run by `run-all`) writes `data/gis/site_qc.gpkg` in British National Grid (EPSG:27700): QC status and screening points, plus time-series and screening tables that relate on `location_code`. [docs/ARCGIS_GUIDE.md](docs/ARCGIS_GUIDE.md) covers the ArcGIS Pro report figure and the ArcGIS Online maps embedded in the dashboard.
+
+### Dashboard
+The [dashboard repo](https://github.com/PriyankaSagwekar/EDD-QC-Dashboard) holds a Streamlit app with six pages: overview, exceptions, batch detail, site map, results explorer and screening. Its `refresh_data.py` copies the reporting views from this database into a DuckDB file. The hosted app reads that snapshot and never connects to SQL Server.
 
 ---
 
@@ -140,6 +173,10 @@ python -m eddqc validate --batch 1
 python -m eddqc report --batch 1
 python -m eddqc promote --batch 1
 python -m eddqc gis-export
+python -m eddqc screen --set DWS
+python -m eddqc ags-export --include-lab-qc
+python -m eddqc ags-check data\ags\RIE01_20261102.ags
+python -m eddqc load path\to\lab_file.ags
 ```
 
 Tests:
@@ -148,7 +185,7 @@ Tests:
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-The rule tests run without a database. The pipeline test builds and then drops a separate `EnvDataQC_Test` database, and is skipped if SQL Server cannot be reached.
+The rule and AGS tests run without a database. The AGS tests round-trip all six simulated EDDs and check that every QA/QC finding and qualifier is unchanged. The pipeline test builds and then drops a separate `EnvDataQC_Test` database, checks the reporting views, screening workbooks and GeoPackage, and re-imports an AGS export. It is skipped if SQL Server cannot be reached.
 
 ---
 
@@ -156,18 +193,21 @@ The rule tests run without a database. The pipeline test builds and then drops a
 
 ```
 config/settings.toml        connection, paths, NO-GO threshold
-sql/                        01-08: database, tables, seed data, views, promotion procedure
+sql/                        01-09: database, tables, seed data, views, promotion procedure, dashboard views
 src/eddqc/
   refdata.py                site, analytes, methods, limits, rule catalogue (source of the seed SQL)
   simulate.py               EDD generator with defect injection and answer keys
-  loader.py                 CSV/Excel reader, header aliases, staging load
+  loader.py                 CSV/Excel/AGS reader, header aliases, staging load
   rules/                    one module per rule family, plus qualifier precedence
   engine.py                 runs the rules, writes exceptions and statuses
   report.py                 Excel QA/QC Exception Report
-  gis_export.py             location QC status as CSV and GeoJSON
+  screening.py              screening workbook per criteria set
+  ags/                      AGS 4.2 dictionary subset, writer, reader, checker, database export
+  gis_export.py             location QC status (CSV, GeoJSON) and the ArcGIS GeoPackage
   cli.py                    command line
-tests/                      rule edge cases, answer-key recall, SQL Server pipeline
-data/                       incoming, processed, rejected, reports, answer_keys, gis
+tests/                      rule edge cases, answer-key recall, AGS round trips, SQL Server pipeline
+data/                       incoming, processed, rejected, reports, answer_keys, gis, ags
+docs/                       Phase 6 plan, ArcGIS guide
 ```
 
 ## Design choices
@@ -179,8 +219,6 @@ data/                       incoming, processed, rejected, reports, answer_keys,
 
 ## Roadmap
 
-- AGS4 import and export (SAMP and ERES groups) alongside the EQuIS-style EDD.
-- A dashboard in Power BI or Streamlit on top of the reporting views.
-- A screening report against UK groundwater and soil criteria, using the existing criteria table.
 - Groundwater-specific checks such as ion balance and field versus lab pH and conductivity.
-- An ArcGIS Pro map layout using the GeoJSON export.
+- A live cloud database (for example Azure SQL) behind the dashboard instead of a snapshot.
+- Power BI reports on the same reporting views.

@@ -203,10 +203,20 @@ python -m eddqc gis-export          # CSV/GeoJSON of locations + QC status for A
 
 # Implementation notes
 
-## Status (2026-10-31)
-- Phases 1 to 5 are built and verified. All 17 tests pass, including the SQL Server pipeline test.
-- Phase 6 stretch items have not been started.
-- The GeoJSON has not yet been opened in ArcGIS or QGIS. That verification step is still outstanding.
+## Status (2026-11-02)
+- Phases 1 to 5 are built and verified.
+- Phase 6 is built: reporting views, screening report, GeoPackage, AGS 4.2 export/import, and the Streamlit dashboard in a separate repo (`..\EDD-QC-Dashboard`). The plan is in `docs/PLAN_PHASE6.md`. 32 tests pass in this repo, 10 in the dashboard repo.
+- Groundwater checks (ion balance, field vs lab pH/EC) were dropped from Phase 6 at the user's request.
+- Still to do by the user: build the ArcGIS Pro figure and ArcGIS Online maps (`docs/ARCGIS_GUIDE.md`), which also closes the outstanding check that the points plot correctly in ArcGIS; deploy the dashboard to Streamlit Community Cloud.
+
+## Phase 6 implementation notes
+- **Views.** `sql/09_dashboard_views.sql` holds the dashboard, screening and GIS views. Outputs read views, never raw tables (the dashboard's rule catalogue is the one exception).
+- **Screening sets.** `refdata.SCREENING_SETS` replaces `SCREENING`/`SCREENING_NAME`. `ref_Screening_Criterion` has `criterion_set` and `is_primary`; DET-04 and the chart criterion line use the primary set (DWS for groundwater, GAC-RES for soil). All values are illustrative.
+- **GeoPackage.** `gis_export.export_package` writes `data/gis/site_qc.gpkg` (EPSG:27700) with `geopandas`/`pyogrio`; both install on Python 3.14.
+- **AGS 4.2.** `src/eddqc/ags/`. Results go in ELRG (ERES was removed in 4.2; legacy ERES files are read with a warning). Code mappings are `refdata.AGS_ELRG_CODE`, `AGS_PROJECT_CODES` (o-terphenyl) and `AGS_UNIT`. Total and dissolved results of one sample are separate specimens (`SPEC_REF` = fraction) so the ELRG keys stay unique. Field blanks without a location sit under LOCA_ID `FIELDQC`, lab QC under `LABQC` (only with `--include-lab-qc`). Receipt, pH, extraction and spike data are DICT user headings. Imported rows keep their AGS file line as `source_row_no`.
+- **AGS reference files.** The AGS 4.2 PDF and the ELRG/ABBR/UNITS/DATATYPE lists live in `docs/reference/ags/`, which is git-ignored (registered-user material). Without them the checker uses a built-in subset.
+- **Line endings.** `.gitattributes` marks `*.ags` as `-text` so files keep CRLF (AGS Rule 2a).
+- **Dashboard repo.** Pull model: `scripts/refresh_data.py` there reads this database's views into `data/envdataqc.duckdb` and can push. The hosted app needs no SQL Server driver. Map pages embed ArcGIS Online URLs from `config/maps.toml`, falling back to a built-in map.
 
 ## Where the build differs from the plan
 - **Reference data source.** `src/eddqc/refdata.py` holds all lookup values and limits. `sql/06_seed_reference.sql` is regenerated from it by `seed.py` on every `init-db`, so edit `refdata.py`, never the SQL file.
@@ -230,7 +240,10 @@ python -m eddqc gis-export          # CSV/GeoJSON of locations + QC status for A
   .\.venv\Scripts\python.exe -m eddqc init-db --reset
   .\.venv\Scripts\python.exe -m eddqc simulate --seed 42
   .\.venv\Scripts\python.exe -m eddqc run-all
+  .\.venv\Scripts\python.exe -m eddqc screen
+  .\.venv\Scripts\python.exe -m eddqc ags-export
   .\.venv\Scripts\python.exe -m pytest
+  # then, in ..\EDD-QC-Dashboard: python scripts\refresh_data.py [--push]
   ```
 - The pipeline test creates and drops a separate `EnvDataQC_Test` database. It never touches `EnvDataQC`.
 - When adding a rule: add it to `RULES` in `refdata.py`, implement it in the matching `rules/` module, add an injector to `DEFECTS` in `simulate.py`, and confirm that clean files still raise zero exceptions.

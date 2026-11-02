@@ -104,6 +104,17 @@ def test_reporting_views_and_gis_package(settings, tmp_path):
     assert ((nds.rl > nds.criterion_value) == (nds.screening_class == "ND inconclusive")).all()
     assert len(q("SELECT * FROM dbo.vw_Screening_Location")) == 15
 
+    from eddqc.screening import CLASS_ORDER, build_screening_report
+    import pandas as pd
+    for crit_set in ("DWS", "EQS-FW"):
+        path = build_screening_report(engine, crit_set, tmp_path / "reports")
+        meta = pd.read_excel(path, sheet_name="Summary", header=None, nrows=12).dropna(subset=[0])
+        counts = dict(zip(meta[0], meta[1]))
+        expected = scr[scr.criterion_set == crit_set].screening_class.value_counts()
+        assert all(counts[c] == expected.get(c, 0) for c in CLASS_ORDER)
+    with pytest.raises(ValueError):
+        build_screening_report(engine, "NOPE", tmp_path / "reports")
+
     gpkg = export_package(engine, tmp_path / "gis")
     layers = dict(pyogrio.list_layers(gpkg))
     assert set(layers) == set(PACKAGE_ITEMS)

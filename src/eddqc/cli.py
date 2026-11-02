@@ -118,6 +118,14 @@ def cmd_gis_export(args, s):
     print(f"Wrote {csv_path}, {gj} and {gpkg}")
 
 
+def cmd_screen(args, s):
+    from .screening import build_screening_report, criteria_sets
+    eng = _engine(s)
+    sets = [args.set] if args.set else list(criteria_sets(eng).criterion_set)
+    for code in sets:
+        print(f"Wrote {build_screening_report(eng, code, s.paths['reports'])}")
+
+
 def cmd_status(args, s):
     from .db import read_sql
     df = read_sql(_engine(s), "SELECT batch_id, file_name, status, row_count, rows_promoted, rows_held, "
@@ -159,6 +167,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("gis-export", help="write location QC status (CSV, GeoJSON) and the ArcGIS GeoPackage"
                    ).set_defaults(func=cmd_gis_export)
+    x = sub.add_parser("screen", help="write the screening report against UK criteria (illustrative values)")
+    x.add_argument("--set", help="criteria set code, e.g. DWS, EQS-FW, GAC-RES (default: all sets)")
+    x.set_defaults(func=cmd_screen)
+
     sub.add_parser("status", help="list loaded batches").set_defaults(func=cmd_status)
     return p
 

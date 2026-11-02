@@ -88,6 +88,7 @@ def test_reporting_views_and_gis_package(settings, tmp_path):
     assert (summary.rows_passed + summary.rows_qualified + summary.rows_held == summary.row_count).all()
     n_exc = q("SELECT COUNT(*) AS n FROM dbo.qc_Exception").n.iloc[0]
     assert summary.n_exceptions.sum() == n_exc
+    assert len(q("SELECT * FROM dbo.vw_Exception_Detail")) == n_exc
 
     quals = q("SELECT SUM(n_results) AS n FROM dbo.vw_Qualifier_Summary").n.iloc[0]
     assert quals == q("SELECT COUNT(*) AS n FROM dbo.dt_Result").n.iloc[0]

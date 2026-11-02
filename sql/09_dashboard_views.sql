@@ -31,6 +31,30 @@ OUTER APPLY (SELECT MIN(TRY_CONVERT(date, s.sample_date)) AS first_sample_date,
              FROM dbo.stg_Result s WHERE s.batch_id = b.batch_id) dates;
 GO
 
+/* Every exception from each batch's latest validation run, with rule family and analyte name. */
+CREATE OR ALTER VIEW dbo.vw_Exception_Detail AS
+SELECT  e.batch_id,
+        b.file_name,
+        r.family,
+        e.rule_id,
+        r.rule_name,
+        e.severity,
+        e.source_row_no,
+        e.sys_sample_code,
+        s.location_code,
+        e.method_code,
+        e.cas_rn,
+        s.chemical_name,
+        e.observed_value,
+        e.limit_value,
+        e.message
+FROM dbo.qc_Exception e
+JOIN dbo.qc_Rule   r ON r.rule_id  = e.rule_id
+JOIN dbo.stg_Batch b ON b.batch_id = e.batch_id
+LEFT JOIN dbo.stg_Result s ON s.batch_id = e.batch_id AND s.source_row_no = e.source_row_no
+WHERE e.run_id = (SELECT MAX(q.run_id) FROM dbo.qc_Run q WHERE q.batch_id = e.batch_id);
+GO
+
 /* Final validator qualifiers on promoted results. 'None' means the result passed unqualified. */
 CREATE OR ALTER VIEW dbo.vw_Qualifier_Summary AS
 SELECT  batch_id,

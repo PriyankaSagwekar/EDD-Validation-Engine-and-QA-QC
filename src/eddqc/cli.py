@@ -69,7 +69,7 @@ def cmd_promote(args, s):
 
 def cmd_run_all(args, s):
     from .engine import promote_batch, reject_batch, validate_batch
-    from .gis_export import export_locations
+    from .gis_export import export_locations, export_package
     from .loader import DuplicateFileError, EDDFormatError, load_file
     from .report import build_report, decision
 
@@ -106,13 +106,16 @@ def cmd_run_all(args, s):
         dest.mkdir(parents=True, exist_ok=True)
         shutil.move(p, dest / p.name)
     csv_path, gj = export_locations(eng, s.paths["gis"])
-    print(f"\nGIS export: {gj}")
+    gpkg = export_package(eng, s.paths["gis"])
+    print(f"\nGIS export: {gj} and {gpkg}")
 
 
 def cmd_gis_export(args, s):
-    from .gis_export import export_locations
-    csv_path, gj = export_locations(_engine(s), s.paths["gis"])
-    print(f"Wrote {csv_path} and {gj}")
+    from .gis_export import export_locations, export_package
+    eng = _engine(s)
+    csv_path, gj = export_locations(eng, s.paths["gis"])
+    gpkg = export_package(eng, s.paths["gis"])
+    print(f"Wrote {csv_path}, {gj} and {gpkg}")
 
 
 def cmd_status(args, s):
@@ -154,7 +157,8 @@ def build_parser() -> argparse.ArgumentParser:
     x.add_argument("folder", nargs="?")
     x.set_defaults(func=cmd_run_all)
 
-    sub.add_parser("gis-export", help="write location QC status as CSV and GeoJSON").set_defaults(func=cmd_gis_export)
+    sub.add_parser("gis-export", help="write location QC status (CSV, GeoJSON) and the ArcGIS GeoPackage"
+                   ).set_defaults(func=cmd_gis_export)
     sub.add_parser("status", help="list loaded batches").set_defaults(func=cmd_status)
     return p
 

@@ -38,8 +38,8 @@ class DetectionRules(Rule):
             out.exc("DET-03", row, f"Non-detect carries value {r.result_value}; expected blank or RL {r.rl}",
                     observed=r.result_value, limit=f"blank or {r.rl}")
 
-        crit = ref.criteria.set_index(["cas_rn", "matrix"]).criterion_value
-        crit = crit[~crit.index.duplicated()]
+        primary = ref.criteria[ref.criteria.is_primary.astype(int) == 1]
+        crit = primary.set_index(["cas_rn", "matrix"]).criterion_value
         nd = trg & (d.detect_flag == "N") & d.sample_type.isin(FIELD_SAMPLES) & d.rl_n.notna()
         for row in d.index[nd]:
             r = d.loc[row]

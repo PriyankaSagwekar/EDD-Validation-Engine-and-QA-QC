@@ -22,6 +22,7 @@ SCRIPT_ORDER = [
     "06_seed_reference.sql",
     "07_views.sql",
     "08_sp_promote_batch.sql",
+    "09_dashboard_views.sql",
 ]
 
 

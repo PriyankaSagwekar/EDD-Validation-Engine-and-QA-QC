@@ -12,3 +12,6 @@ data/processed/*
 !data/processed/FAL_EDD_2601_GW.csv
 data/rejected/
 data/answer_keys/
+
+# Licensed AGS reference material (registered-user download)
+docs/reference/

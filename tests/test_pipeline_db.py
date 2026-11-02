@@ -68,3 +68,46 @@ def test_load_validate_promote(settings, tmp_path):
     """).iloc[0]
     assert check.master == check.promoted
     assert check.mismatches == 0
+
+
+def test_reporting_views_and_gis_package(settings, tmp_path):
+    """Runs after test_load_validate_promote, on the batches it loaded."""
+    import geopandas as gpd
+    import pyogrio
+
+    from eddqc.gis_export import PACKAGE_ITEMS, export_package
+
+    engine = db.get_engine(settings)
+    q = lambda sql: db.read_sql(engine, sql)
+    summary = q("SELECT * FROM dbo.vw_Batch_Summary")
+    assert len(summary) == 2
+
+    held = q("SELECT COUNT(*) AS n FROM dbo.stg_Result WHERE qc_status = 'HELD'").n.iloc[0]
+    assert summary.rows_held.sum() == held
+    assert len(q("SELECT * FROM dbo.vw_Held_Rows")) == held
+    assert (summary.rows_passed + summary.rows_qualified + summary.rows_held == summary.row_count).all()
+    n_exc = q("SELECT COUNT(*) AS n FROM dbo.qc_Exception").n.iloc[0]
+    assert summary.n_exceptions.sum() == n_exc
+
+    quals = q("SELECT SUM(n_results) AS n FROM dbo.vw_Qualifier_Summary").n.iloc[0]
+    assert quals == q("SELECT COUNT(*) AS n FROM dbo.dt_Result").n.iloc[0]
+
+    ts = q("SELECT * FROM dbo.vw_Result_Timeseries")
+    nd = ts[ts.detect_flag == "N"]
+    assert len(nd) and (nd.plot_value == nd.rl).all()
+    assert set(ts.point_class) <= {"Detect", "Non-detect", "Qualified"}
+
+    scr = q("SELECT * FROM dbo.vw_Screening_Exceedance")
+    det = scr[scr.detect_flag == "Y"]
+    assert ((det.result_value > det.criterion_value) == (det.screening_class == "Exceeds")).all()
+    nds = scr[scr.detect_flag == "N"]
+    assert ((nds.rl > nds.criterion_value) == (nds.screening_class == "ND inconclusive")).all()
+    assert len(q("SELECT * FROM dbo.vw_Screening_Location")) == 15
+
+    gpkg = export_package(engine, tmp_path / "gis")
+    layers = dict(pyogrio.list_layers(gpkg))
+    assert set(layers) == set(PACKAGE_ITEMS)
+    for layer, (sql, is_points) in PACKAGE_ITEMS.items():
+        assert len(pyogrio.read_dataframe(gpkg, layer=layer)) == len(q(sql))
+        if is_points:
+            assert gpd.read_file(gpkg, layer=layer).crs.to_epsg() == 27700

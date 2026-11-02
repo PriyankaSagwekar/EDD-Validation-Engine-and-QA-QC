@@ -47,13 +47,13 @@ def reference_tables() -> dict[str, tuple[list[str], list[tuple]]]:
     t["ref_Spike_Limit"] = (["method_code", "cas_rn", "qc_type", "lower_pct", "upper_pct", "rpd_max"], spikes)
 
     crit = []
-    for kind, values in R.SCREENING.items():
-        matrix = "SO" if kind == "S" else "WG"
-        for cas, val in values.items():
-            crit.append((cas, matrix, R.SCREENING_NAME[kind], val, R.UNITS[kind],
+    for set_code, cs in R.SCREENING_SETS.items():
+        matrix = "SO" if cs["kind"] == "S" else "WG"
+        for cas, val in cs["values"].items():
+            crit.append((cas, matrix, set_code, cs["name"], int(cs["primary"]), val, R.UNITS[cs["kind"]],
                          "Illustrative value for a portfolio project, not for real assessment"))
-    t["ref_Screening_Criterion"] = (["cas_rn", "matrix", "criterion_name", "criterion_value", "unit",
-                                     "source_note"], crit)
+    t["ref_Screening_Criterion"] = (["cas_rn", "matrix", "criterion_set", "criterion_name", "is_primary",
+                                     "criterion_value", "unit", "source_note"], crit)
     t["ref_Valid_Value"] = (["domain", "code", "description"],
                             [(d, c, desc) for d, codes in R.VALID_VALUES.items() for c, desc in codes.items()])
     t["qc_Rule"] = (["rule_id", "family", "rule_name", "severity", "default_qualifier", "description"],

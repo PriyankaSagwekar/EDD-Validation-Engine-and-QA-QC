@@ -1,0 +1,16 @@
+location_code,location_type,easting,northing,worst_analyte,worst_result,worst_criterion,worst_unit,criterion_set,max_ratio,n_analytes_exceeding,n_analytes_inconclusive,ratio_band
+BH01,BH,430250.0,433360.0,Benzo(a)pyrene,4.17,2.2,mg/kg,GAC-RES,1.8954545454545453,1,0,1-10x
+BH02,BH,430310.0,433280.0,Benzene,1.37,0.087,mg/kg,GAC-RES,15.747126436781612,2,0,>10x
+BH03,BH,430500.0,433350.0,Trichloroethene,0.116,0.016,mg/kg,GAC-RES,7.25,2,0,1-10x
+MW01,MW,430120.0,433410.0,Vinyl chloride,0.529,0.5,ug/L,DWS,1.058,1,2,1-10x
+MW02,MW,430215.0,433380.0,Benzo(a)pyrene,0.00991,0.01,ug/L,DWS,0.991,0,0,Below criterion
+MW03,MW,430290.0,433305.0,Benzene,85.7,1.0,ug/L,DWS,85.7,3,0,>10x
+MW04,MW,430340.0,433260.0,Benzene,52.2,1.0,ug/L,DWS,52.2,3,0,>10x
+MW05,MW,430395.0,433210.0,Benzene,3.15,1.0,ug/L,DWS,3.15,1,0,1-10x
+MW06,MW,430180.0,433250.0,Benzene,0.471,1.0,ug/L,DWS,0.471,0,0,Below criterion
+MW07,MW,430470.0,433380.0,Trichloroethene,187.0,10.0,ug/L,DWS,18.7,3,0,>10x
+MW08,MW,430540.0,433330.0,Trichloroethene,71.3,10.0,ug/L,DWS,7.13,3,0,1-10x
+MW09,MW,430610.0,433270.0,Trichloroethene,15.4,10.0,ug/L,DWS,1.54,1,0,1-10x
+MW10,MW,430075.0,433290.0,Arsenic,4.28,10.0,ug/L,DWS,0.42800000000000005,0,2,Inconclusive
+TP01,TP,430160.0,433330.0,Lead,179.0,200.0,mg/kg,GAC-RES,0.895,0,0,Below criterion
+TP02,TP,430420.0,433300.0,Benzo(a)pyrene,2.13,2.2,mg/kg,GAC-RES,0.968181818181818,0,0,Below criterion

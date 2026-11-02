@@ -80,14 +80,18 @@ CREATE TABLE dbo.ref_Spike_Limit (
     CONSTRAINT pk_ref_Spike_Limit PRIMARY KEY (method_code, cas_rn, qc_type)
 );
 
+/* One row per analyte, matrix and criteria set. is_primary marks the set used by
+   DET-04 and drawn as the criterion line on charts. */
 CREATE TABLE dbo.ref_Screening_Criterion (
     cas_rn          varchar(30)   NOT NULL REFERENCES dbo.ref_Analyte(cas_rn),
     matrix          varchar(5)    NOT NULL,
+    criterion_set   varchar(20)   NOT NULL,
     criterion_name  nvarchar(100) NOT NULL,
+    is_primary      bit           NOT NULL,
     criterion_value float         NOT NULL,
     unit            varchar(10)   NOT NULL,
     source_note     nvarchar(200) NULL,
-    CONSTRAINT pk_ref_Screening_Criterion PRIMARY KEY (cas_rn, matrix, criterion_name)
+    CONSTRAINT pk_ref_Screening_Criterion PRIMARY KEY (cas_rn, matrix, criterion_set)
 );
 
 CREATE TABLE dbo.ref_Valid_Value (

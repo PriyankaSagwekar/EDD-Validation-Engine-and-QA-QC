@@ -1,0 +1,2 @@
+# AGS files must keep CR+LF line ends (AGS Rule 2a)
+*.ags -text

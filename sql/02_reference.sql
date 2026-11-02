@@ -101,3 +101,46 @@ CREATE TABLE dbo.ref_Valid_Value (
     CONSTRAINT pk_ref_Valid_Value PRIMARY KEY (domain, code)
 );
 GO
+
+/* Ground investigation data for the fictional site (site_investigation.py): geology logs,
+   water strikes with their rise readings, and groundwater level dips. Exported as AGS
+   GEOL, WSTG, WSTD and MOND. */
+CREATE TABLE dbo.ref_Geology (
+    location_code varchar(20)   NOT NULL REFERENCES dbo.ref_Location(location_code),
+    depth_top_m   decimal(6,2)  NOT NULL,
+    depth_base_m  decimal(6,2)  NOT NULL,
+    legend_code   varchar(10)   NOT NULL,          -- AGS GEOL_LEG
+    geology_code  varchar(10)   NOT NULL,          -- AGS GEOL_GEOL (project codes)
+    description   nvarchar(400) NOT NULL,
+    formation     nvarchar(100) NULL,
+    CONSTRAINT pk_ref_Geology PRIMARY KEY (location_code, depth_top_m),
+    CONSTRAINT ck_ref_Geology_depth CHECK (depth_top_m < depth_base_m)
+);
+
+CREATE TABLE dbo.ref_Water_Strike (
+    location_code   varchar(20)   NOT NULL REFERENCES dbo.ref_Location(location_code),
+    strike_depth_m  decimal(6,2)  NOT NULL,
+    strike_datetime datetime2(0)  NULL,
+    remark          nvarchar(200) NULL,
+    CONSTRAINT pk_ref_Water_Strike PRIMARY KEY (location_code, strike_depth_m)
+);
+
+CREATE TABLE dbo.ref_Water_Strike_Reading (
+    location_code  varchar(20)  NOT NULL,
+    strike_depth_m decimal(6,2) NOT NULL,
+    minutes_after  int          NOT NULL,
+    depth_m        decimal(6,2) NOT NULL,
+    CONSTRAINT pk_ref_Water_Strike_Reading PRIMARY KEY (location_code, strike_depth_m, minutes_after),
+    CONSTRAINT fk_ref_Water_Strike_Reading FOREIGN KEY (location_code, strike_depth_m)
+        REFERENCES dbo.ref_Water_Strike(location_code, strike_depth_m)
+);
+
+CREATE TABLE dbo.ref_Water_Level (
+    location_code    varchar(20)   NOT NULL REFERENCES dbo.ref_Location(location_code),
+    reading_datetime datetime2(0)  NOT NULL,
+    reading_ref      varchar(20)   NOT NULL,       -- monitoring event code
+    depth_to_water_m decimal(6,2)  NOT NULL,       -- below ground level
+    method           nvarchar(100) NULL,
+    CONSTRAINT pk_ref_Water_Level PRIMARY KEY (location_code, reading_datetime)
+);
+GO

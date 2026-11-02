@@ -1,0 +1,1226 @@
+﻿Code ,Description,Status,Comments,Date,Version
+ARTW_TYPE,,,,,
+DRY,Dry test,Approved,,25-05-2010,"4.0,4.1,4.2"
+WET,Wet test,Approved,,25-05-2010,"4.0,4.1,4.2"
+BKFL_LEG,,,,,
+901,Sand backfill,Approved,,25-05-2010,"4.0,4.1,4.2"
+902,Gravel backfill,Approved,,25-05-2010,"4.0,4.1,4.2"
+903,Bentonite,Approved,,25-05-2010,"4.0,4.1,4.2"
+904,Grout,Approved,,25-05-2010,"4.0,4.1,4.2"
+905,Arisings,Approved,,25-05-2010,"4.0,4.1,4.2"
+906,Concrete,Approved,,25-05-2010,"4.0,4.1,4.2"
+907,Asphalt,Approved,,24-12-2013,"4.0,4.1,4.2"
+908,Ballast,Approved,,24-12-2013,"4.0,4.1,4.2"
+909,Upstanding cover,Approved,,24-12-2013,"4.0,4.1,4.2"
+910,Flush cover,Approved,,24-12-2013,"4.0,4.1,4.2"
+912,Paving slab,Approved,,09-01-2014,"4.0,4.1,4.2"
+913,Timber,Approved,,03-11-2017,"4.0,4.1,4.2"
+914,Mortar,Approved,,08-12-2020,"4.0,4.1,4.2"
+999,Void,Approved,,06-07-2016,"4.0,4.1,4.2"
+CBRG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+CBRP_END,,,,,
+BASE,Base,Approved,Relating to CBRT_BASE result,31-12-2025,4.2
+TOP,Top,Approved,Relating to CBRT_TOP result,31-12-2025,4.2
+CMPG_MOLD,,,,,
+1 LITRE,1 Litre mould type,Approved,,25-05-2010,"4.0,4.1,4.2"
+CBR,CBR Mould type,Approved,,25-05-2010,"4.0,4.1,4.2"
+CMPG_TYPE,,,,,
+2.5KG,2.5kg,Approved,,25-05-2010,"4.0,4.1,4.2"
+4.5KG,4.5kg Heavy compaction,Approved,,25-05-2010,"4.0,4.1,4.2"
+VIBRO,Vibro compaction,Approved,,25-05-2010,"4.0,4.1,4.2"
+CONG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+CONG_TYPE,,,,,
+EXPANDABILITY,Expandability,Approved,,25-05-2010,"4.0,4.1,4.2"
+HYDRAULIC CELL,Hydraulic cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+OEDOMETER,Oedometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+SETTLESAT,Settlement on saturation,Approved,New code agreed,08-12-2020,"4.0,4.1,4.2"
+SWELL,Measurement of swelling,Approved,,26-04-2022,"4.0,4.1,4.2"
+SWELLPRESS,Measurement of swelling pressure,Approved,,26-04-2022,"4.0,4.1,4.2"
+CPDG_UEP,,,,,
+A,Assumed,Approved,,31-12-2025,4.2
+F,Final test reading,Approved,,31-12-2025,4.2
+FO,Final test reading at other LOCA_ID,Approved,,31-12-2025,4.2
+GW,Groundwater level observation,Approved,,31-12-2025,4.2
+O,Porewater pressure measurement during CPTU at other LOCA_ID,Approved,,31-12-2025,4.2
+U,Porewater pressure measurement during CPTU,Approved,,31-12-2025,4.2
+UP,Provided by others,Approved,,31-12-2025,4.2
+XF,Extrapolation of final decay curve,Approved,,31-12-2025,4.2
+CPDG_UIP,,,,,
+A,Assumed,Approved,,31-12-2025,4.2
+M,Measured in dissipation test,Approved,,31-12-2025,4.2
+X,Extrapolation line,Approved,,31-12-2025,4.2
+CPTG_APCL,,,,,
+1,Class 1,Approved,,31-12-2025,4.2
+2,Class 2,Approved,,31-12-2025,4.2
+3,Class 3,Approved,,31-12-2025,4.2
+4,Class 4,Approved,,31-12-2025,4.2
+A,Test category A,Approved,,31-12-2025,4.2
+B,Test category B,Approved,,31-12-2025,4.2
+C,Test category C,Approved,,31-12-2025,4.2
+D,Test category D,Approved,,31-12-2025,4.2
+NA,Not applicable,Approved,,31-12-2025,4.2
+OC,Out of class or category,Approved,,31-12-2025,4.2
+CPTG_CPCL,,,,,
+0,Class 0,Approved,,31-12-2025,4.2
+1,Class 1,Approved,,31-12-2025,4.2
+2,Class 2,Approved,,31-12-2025,4.2
+3,Class 3,Approved,,31-12-2025,4.2
+CPTG_FILL,,,,,
+U1,Face porewater pressure (u1),Approved,,31-12-2025,4.2
+U2,Shoulder porewater pressure (u2),Approved,,31-12-2025,4.2
+U3,Top of sleeve porewater pressure (u3),Approved,,31-12-2025,4.2
+CPTG_LCA,,,,,
+CC,Compression cone,Approved,,31-12-2025,4.2
+SC,Subtraction cone,Approved,,31-12-2025,4.2
+TC,Tension cone,Approved,,31-12-2025,4.2
+CPTG_RLOC,,,,,
+BB,Bottom of borehole,Approved,,31-12-2025,4.2
+S,Surface or deck,Approved,,31-12-2025,4.2
+SB,Seabed,Approved,,31-12-2025,4.2
+CPTG_TERM,,,,,
+CONE DESATURATION,Cone Desaturation,Approved,,31-12-2025,4.2
+DEVIATION OF INCLINATION,Deviation of Inclination,Approved,,31-12-2025,4.2
+EQUIPMENT FAILURE,Equipment Failure,Approved,,31-12-2025,4.2
+MAGNETIC ANOMALY,Magnetic Anomaly,Approved,,31-12-2025,4.2
+MAXIMUM CONE VALUE,Maximum Cone Value,Approved,,31-12-2025,4.2
+MAXIMUM FRICTION VALUE,Maximum Friction Value,Approved,,31-12-2025,4.2
+MAXIMUM INCLINATION VALUE,Maximum Inclination Value,Approved,,31-12-2025,4.2
+MAXIMUM PENETRATION FORCE,Maximum Penetration Force,Approved,,31-12-2025,4.2
+MAXIMUM PORE PRESSURE VALUE,Maximum Pore Pressure Value,Approved,,31-12-2025,4.2
+OBSTACLE,Obstacle,Approved,,31-12-2025,4.2
+OPERATOR DISCRETION,Operator Discretion,Approved,,31-12-2025,4.2
+RODS BUCKLING,Rods Buckling,Approved,,31-12-2025,4.2
+TARGET DEPTH,Target Depth,Approved,,31-12-2025,4.2
+TECHNICAL ISSUES,Technical Issues,Approved,,31-12-2025,4.2
+CPTG_TYPE,,,,,
+BALL,Ball Penetrometer,Approved,,31-12-2025,4.2
+CC,Electrical Conductivity cone,Approved,,31-12-2025,4.2
+CPT,"Electrical cone penetration test, which includes measurement of cone resistance and sleeve friction",Approved,,31-12-2025,4.2
+CPTU,"Electrical piezocone test, which is a cone penetration test with the additional measurement of pore pressure",Approved,,31-12-2025,4.2
+FFD,Fuel fluorescence cone,Approved,,31-12-2025,4.2
+GAM,Gamma cone,Approved,,31-12-2025,4.2
+MC,Mechanical cone,Approved,,31-12-2025,4.2
+MG,Magnetometer Cone,Approved,,31-12-2025,4.2
+SC,P & S-wave Seismic Cone,Approved,,31-12-2025,4.2
+T-BAR,T-bar,Approved,,31-12-2025,4.2
+TC,Temperature cone,Approved,,31-12-2025,4.2
+CPTZ_PARM,,,,,
+FS,Sleeve friction (fs),Approved,,31-12-2025,4.2
+INCX,Inclination X,Approved,,31-12-2025,4.2
+INCY,Inclination Y,Approved,,31-12-2025,4.2
+QC,Cone resistance (qc),Approved,,31-12-2025,4.2
+U1,Face porewater pressure (u1),Approved,,31-12-2025,4.2
+U2,Shoulder porewater pressure (u2),Approved,,31-12-2025,4.2
+U3,Top of sleeve porewater pressure (u3),Approved,,31-12-2025,4.2
+CTRC_BEAX,,,,,
+hh,"horizontally propagating, horizontally orientated",Approved,,08-12-2020,"4.1,4.2"
+hv,"horizontally propagating, vertically orientated",Approved,,08-12-2020,"4.1,4.2"
+Sv,Axial shear-wave propagation,Approved,,08-12-2020,"4.1,4.2"
+vh,"vertically propagating, horizontally orientated",Approved,,08-12-2020,"4.1,4.2"
+CTRC_TYPE,,,,,
+ISOTROPIC,Isotropic,Approved,,08-12-2020,"4.1,4.2"
+K0,K0,Approved,,08-12-2020,"4.1,4.2"
+STRESS,Stress path,Approved,,08-12-2020,"4.1,4.2"
+CTRD_COND,,,,,
+DRAINED,Drained,Approved,,08-12-2020,"4.1,4.2"
+UNDRAINED,Undrained,Approved,,08-12-2020,"4.1,4.2"
+CTRG_TYPE,,,,,
+CADC,Consolidated Anisotropically Drained Cyclic Test,Approved,,08-12-2020,"4.1,4.2"
+CAUC,Consolidated Anisotropically Undrained Cyclic Test,Approved,,08-12-2020,"4.1,4.2"
+CIDC,Consolidated Isotropically Drained Cyclic Test,Approved,,08-12-2020,"4.1,4.2"
+CIUC,Consolidated Isotropically Undrained Cyclic Test,Approved,,08-12-2020,"4.1,4.2"
+DICT_DTYP,,,,,
+0DP,"Value; required number of decimal places, 0",Approved,,25-05-2010,"4.0,4.1,4.2"
+0SCI,"Scientific Notation; required number of decimal places, 0",Approved,,25-05-2010,"4.0,4.1,4.2"
+1DP,"Value; required number of decimal places, 1",Approved,,25-05-2010,"4.0,4.1,4.2"
+1SCI,"Scientific Notation; required number of decimal places, 1",Approved,,25-05-2010,"4.0,4.1,4.2"
+1SF,"Value; required number of significant figures, 1",Approved,,25-05-2010,"4.0,4.1,4.2"
+2DP,"Value; required number of decimal places, 2",Approved,,25-05-2010,"4.0,4.1,4.2"
+2SCI,"Scientific Notation; required number of decimal places, 2",Approved,,25-05-2010,"4.0,4.1,4.2"
+2SF,"Value; required number of significant figures, 2",Approved,,25-05-2010,"4.0,4.1,4.2"
+3DP,"Value; required number of decimal places, 3",Approved,,25-05-2010,"4.0,4.1,4.2"
+3SCI,"Scientific Notation; required number of decimal places, 3",Approved,,25-05-2010,"4.0,4.1,4.2"
+3SF,"Value; required number of significant figures, 3",Approved,,25-05-2010,"4.0,4.1,4.2"
+4DP,"Value; required number of decimal places, 4",Approved,,25-05-2010,"4.0,4.1,4.2"
+4SCI,"Scientific Notation; required number of decimal places, 4",Approved,,25-05-2010,"4.0,4.1,4.2"
+4SF,"Value; required number of significant figures, 4",Approved,,25-05-2010,"4.0,4.1,4.2"
+DMS,Degrees:Minutes:Seconds,Approved,,25-05-2010,"4.0,4.1,4.2"
+DT,Date time in international format,Approved,,25-05-2010,"4.0,4.1,4.2"
+ID,Unique Identifier,Approved,,25-05-2010,"4.0,4.1,4.2"
+MC,British Standard BS1377 : Part 2 reported moisture content,Approved,,25-05-2010,"4.0,4.1,4.2"
+PA,Text listed in ABBR Group,Approved,,25-05-2010,"4.0,4.1,4.2"
+PT,Text listed in TYPE Group,Approved,,25-05-2010,"4.0,4.1,4.2"
+PU,Text listed in UNIT Group,Approved,,25-05-2010,"4.0,4.1,4.2"
+RL,Record link,Approved,,25-05-2010,"4.0,4.1,4.2"
+T,Elapsed time,Approved,,25-05-2010,"4.0,4.1,4.2"
+U,Value with variable format,Approved,,25-05-2010,"4.0,4.1,4.2"
+X,Text,Approved,,25-05-2010,"4.0,4.1,4.2"
+XN,Text / numeric,Approved,,25-05-2010,"4.0,4.1,4.2"
+YN,Y or N or NULL,Approved,,25-05-2010,"4.0,4.1,4.2"
+DICT_STAT,,,,,
+DEPRECATED,Deprecated field,Approved,,23-04-2025,"4.1,4.2"
+KEY,Key field,Approved,,25-05-2010,"4.0,4.1,4.2"
+OTHER,Other field,Approved,,25-05-2010,"4.0,4.1,4.2"
+REQUIRED,Required field,Approved,,25-05-2010,"4.0,4.1,4.2"
+DICT_TYPE,,,,,
+GROUP,Flag to indicate definition is a GROUP,Approved,,25-05-2010,"4.0,4.1,4.2"
+HEADING,Flag to indicate definition is a HEADING,Approved,,25-05-2010,"4.0,4.1,4.2"
+DISC_TERM,,,,,
+D,Terminates against another discontinuity,Approved,,25-05-2010,"4.0,4.1,4.2"
+R,Terminates within rock,Approved,,25-05-2010,"4.0,4.1,4.2"
+X,Extends beyond exposure,Approved,,25-05-2010,"4.0,4.1,4.2"
+DISC_TYPE,,,,,
+Joint,Joint,Approved,,08-12-2020,"4.0,4.1,4.2"
+DMTG_TYPE,,,,,
+ELECTRO-MECHANICAL,Electro-mechanical system,Approved,,31-12-2025,4.2
+PNEUMATIC,Original pneumatic blade system,Approved,,31-12-2025,4.2
+DMTZ_TYPE,,,,,
+AFTER,After,Approved,,31-12-2025,4.2
+BEFORE,Before,Approved,,31-12-2025,4.2
+DURING,During,Approved,,31-12-2025,4.2
+DPRG_TYPE,,,,,
+DPH,Heavy dynamic probe (50kg hammer mass/500mm drop),Approved,,25-05-2010,"4.0,4.1,4.2"
+DPL,Light dynamic probe (10kg hammer mass/500mm drop),Approved,,25-05-2010,"4.0,4.1,4.2"
+DPM,Medium dynamic probe (30kg hammer mass/500mm drop),Approved,,25-05-2010,"4.0,4.1,4.2"
+DPSH-A,Superheavy dynamic probe (63.5kg hammer mass/500mm drop),Approved,,25-05-2010,"4.0,4.1,4.2"
+DPSH-B,Superheavy (63.5kg hammer mass/750mm drop),Approved,,25-05-2010,"4.0,4.1,4.2"
+ELRG_BAS,,,,,
+AIR,Air dried,Approved,,08-12-2020,"4.1,4.2"
+DRY,Dry,Approved,,08-12-2020,"4.1,4.2"
+WET,Wet,Approved,,08-12-2020,"4.1,4.2"
+ELRG_LOCN,,,,,
+FIELDLAB,Analysis location - field laboratory,Approved,,08-12-2020,"4.1,4.2"
+LAB,Analysis location - Laboratory,Approved,,08-12-2020,"4.1,4.2"
+SITE,Analysis location - site,Approved,,08-12-2020,"4.1,4.2"
+ELRG_MATX,,,,,
+LIQUID,Liquid,Approved,,08-12-2020,"4.1,4.2"
+PRODUCT,Product,Approved,,08-12-2020,"4.1,4.2"
+SOLID,Solid,Approved,,08-12-2020,"4.1,4.2"
+ELRG_RTCD,,,,,
+IC,Spiked compound,Approved,,08-12-2020,"4.1,4.2"
+IS,Internal standards,Approved,,08-12-2020,"4.1,4.2"
+SUR,Surrogate,Approved,,08-12-2020,"4.1,4.2"
+TIC,Tentatively identified compound,Approved,,08-12-2020,"4.1,4.2"
+TRG,Target,Approved,,08-12-2020,"4.1,4.2"
+ELRG_RTYP,,,,,
+INITIAL,Initial,Approved,,08-12-2020,"4.1,4.2"
+REANALYSIS,Reanalysis,Approved,,08-12-2020,"4.1,4.2"
+REANALYSIS2,2nd reanalysis,Approved,,08-12-2020,"4.1,4.2"
+ELRG_TADE,,,,,
+CEN_10_1,CEN 10-1,Approved,,08-12-2020,"4.1,4.2"
+CEN_2_1,CEN 2-1,Approved,,08-12-2020,"4.1,4.2"
+NRA,National Rivers Authority,Approved,,08-12-2020,"4.1,4.2"
+ESCG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+ESCG_TYPE,,,,,
+CD,Consolidated Drained,Approved,,25-05-2010,"4.0,4.1,4.2"
+CDM,Consolidated Drained Multistage,Approved,,25-05-2010,"4.0,4.1,4.2"
+CU,Consolidated Undrained,Approved,,25-05-2010,"4.0,4.1,4.2"
+CUM,Consolidated Undrained Multistage,Approved,,25-05-2010,"4.0,4.1,4.2"
+FGHG_CNFG,,,,,
+BH,Test in borehole,Approved,,08-12-2020,"4.1,4.2"
+PKD,Borehole test using double packer,Approved,,08-12-2020,"4.1,4.2"
+PKS,Borehole test using single packer,Approved,,08-12-2020,"4.1,4.2"
+PKSD,Double Instrumented Packer,Approved,,08-12-2020,"4.1,4.2"
+PKSI,Single Instrumented Packer,Approved,,08-12-2020,"4.1,4.2"
+SP,Test in standpipe,Approved,,08-12-2020,"4.1,4.2"
+SPIE,Standpipe Piezometer,Approved,,08-12-2020,"4.1,4.2"
+FGHG_FTYP,,,,,
+Dilation,Dilation,Approved,,08-12-2020,"4.1,4.2"
+Filling,Filling,Approved,,08-12-2020,"4.1,4.2"
+Hydraulic fracture,Hydraulic fracture,Approved,,08-12-2020,"4.1,4.2"
+Laminar,Laminar,Approved,,08-12-2020,"4.1,4.2"
+Progressive scour,Progressive scour,Approved,,08-12-2020,"4.1,4.2"
+Turbulent,Turbulent,Approved,,08-12-2020,"4.1,4.2"
+Void-filling,Void-filling,Approved,,08-12-2020,"4.1,4.2"
+Wash-out,Wash-out,Approved,,08-12-2020,"4.1,4.2"
+FGHG_TYPE,,,,,
+CONSTANT FLOW RATE,Constant Flow Rate Test,Approved,,18-10-2021,"4.1,4.2"
+CONSTANT HEAD,Constant Head,Approved,,08-12-2020,"4.1,4.2"
+CONSTANT HEAD (NEGATIVE),Constant Head Test with water abstraction,Approved,,18-10-2021,"4.1,4.2"
+CONSTANT HEAD (POSITIVE),Constant Head Test with water injection,Approved,,18-10-2021,"4.1,4.2"
+FALLING HEAD,Falling Head,Approved,,08-12-2020,"4.1,4.2"
+RISING HEAD,Rising Head,Approved,,18-10-2021,"4.1,4.2"
+WATER PRESSURE,Water Pressure Test,Approved,,18-10-2021,"4.1,4.2"
+FGHT_TYPE,,,,,
+FLWR,Instantaneous flow rate at time FGHT_TIME,Approved,,08-12-2020,"4.1,4.2"
+FILE_DOCT,,,,,
+CAL,Calibration data,Approved,,25-05-2010,"4.0,4.1,4.2"
+CR,Construction record,Approved,,25-05-2010,"4.0,4.1,4.2"
+DRAW,Drawing,Approved,,25-05-2010,"4.0,4.1,4.2"
+GEN,General,Approved,,25-05-2010,"4.0,4.1,4.2"
+MS,Method statement,Approved,,25-05-2010,"4.0,4.1,4.2"
+PH,Photograph,Approved,,25-05-2010,"4.0,4.1,4.2"
+RAW,Raw data,Approved,,25-05-2010,"4.0,4.1,4.2"
+REP,Report,Approved,,25-05-2010,"4.0,4.1,4.2"
+TECH,Technical paper,Approved,,25-05-2010,"4.0,4.1,4.2"
+VI,Video clip,Approved,,25-05-2010,"4.0,4.1,4.2"
+FILE_TYPE,,,,,
+BMP,Bitmap image file,Approved,,31-01-2020,"4.0,4.1,4.2"
+JPG,Joint Photographic Experts Group graphics/image file,Approved,,31-01-2020,"4.0,4.1,4.2"
+PDF,Portable Document Format,Approved,,31-01-2020,"4.0,4.1,4.2"
+FLSH_TYPE,,,,,
+Air,Air,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Air and Water mist,Air and Water mist,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Barium,Barium,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Bentonite Mud,Bentonite Mud,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Foam,Foam,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Polymer,Polymer,Proposed,,29-02-2024,"4.0,4.1,4.2"
+Water,Water,Approved,,08-12-2020,"4.0,4.1,4.2"
+FRST_COND,,,,,
+RECOMPACTION,Recompacted,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCHM_CODE,,,,,
+ACO2,Aggressive carbon dioxide (as mg/l),Approved,,25-05-2010,"4.0,4.1,4.2"
+AS,Acid-soluble sulphate (as % SO4),Approved,,25-05-2010,"4.0,4.1,4.2"
+AS_SO3,Acid-soluble sulphate (as % SO3),Approved,,21-12-2015,"4.0,4.1,4.2"
+CACO3,Chalk content (as %CaCO3),Approved,,25-05-2010,"4.0,4.1,4.2"
+CHL,Chloride,Declined,Duplicated,24-10-2019,"4.0,4.1,4.2"
+CL,Chloride (as mg/l),Approved,,25-05-2010,"4.0,4.1,4.2"
+CO2,Carbonate content (as %CO2),Approved,,25-05-2010,"4.0,4.1,4.2"
+GWS,Groundwater sulfate,Approved,,08-12-2020,"4.0,4.1,4.2"
+LOI,Loss on ignition (as %),Approved,,25-05-2010,"4.0,4.1,4.2"
+MSC,Monosulfide sulfur content,Approved,,08-12-2020,"4.0,4.1,4.2"
+NH4,Ammonium ion (as mg/l),Approved,,25-05-2010,"4.0,4.1,4.2"
+NO3,Nitrate (as mg/l),Approved,,25-05-2010,"4.0,4.1,4.2"
+OGM,Organic matter content (as %),Approved,,25-05-2010,"4.0,4.1,4.2"
+OS,Oxidisable Sulphide,Approved,,15-05-2020,"4.0,4.1,4.2"
+PH,Acidity/alkalinity (pH to nearest 0.1),Approved,,25-05-2010,"4.0,4.1,4.2"
+REDOX,Redox potential (in mV),Approved,,25-05-2010,"4.0,4.1,4.2"
+SO3,Sulphate as SO3,Approved,,18-03-2016,"4.0,4.1,4.2"
+SO4,Sulphate as SO4,Approved,,24-10-2019,"4.0,4.1,4.2"
+TDS,Total dissolved solids (in mg/l to 2SF),Approved,,25-05-2010,"4.0,4.1,4.2"
+TIC,Total inorganic carbon,Approved,,08-12-2020,"4.0,4.1,4.2"
+TOC,Total organic carbon,Approved,,08-12-2020,"4.0,4.1,4.2"
+TPS,Total potential sulfate,Approved,,08-12-2020,"4.0,4.1,4.2"
+TRS,Total reduced sulfur,Approved,,08-12-2020,"4.0,4.1,4.2"
+TS,Total sulphur (as %S),Approved,,25-05-2010,"4.0,4.1,4.2"
+WC,Water-soluble chloride (as mg/l),Declined,Use GCHM_CODE WCL,20-08-2021,"4.0,4.1,4.2"
+WCL,Water soluble chloride (as mg/l),Approved,,08-12-2020,"4.0,4.1,4.2"
+WMG,Water/soil extract Magnesium (as m/g),Approved,,25-05-2010,"4.0,4.1,4.2"
+WS,Water-soluble sulphate (as mg/l SO4),Approved,,25-05-2010,"4.0,4.1,4.2"
+WS_S,Water-soluble sulfur (as % S),Proposed,,01-10-2021,"4.1,4.2"
+WS_SO3,Water-soluble sulphate (as g/l SO3),Approved,,21-12-2015,"4.0,4.1,4.2"
+WS_SO4,Water-soluble sulfate (as % SO4),Proposed,,01-10-2021,"4.1,4.2"
+GCHM_TTYP,,,,,
+SOLID_2.51 WATER EXTRACT,Solid (2.5:1 Soil/Water extract),Proposed,,02-11-2016,"4.0,4.1,4.2"
+SOLID_21 WATER EXTRACT,Solid (2:1 Soil/Water extract),Approved,,25-05-2010,"4.0,4.1,4.2"
+SOLID_ACID EXTRACT,Solid (Acid extract),Approved,,25-05-2010,"4.0,4.1,4.2"
+SOLID_TOTAL,Solid (Total),Approved,,25-05-2010,"4.0,4.1,4.2"
+WATER,Water,Approved,,25-05-2010,"4.0,4.1,4.2"
+GEOL_BNDF,,,,,
+GRADED,Graded,Approved,,31-12-2025,4.2
+POORLY-DEFINED,Poorly-defined,Approved,,31-12-2025,4.2
+WELL-DEFINED,Well-defined,Approved,,31-12-2025,4.2
+GEOL_LEG,,,,,
+101,TOPSOIL,Approved,,25-05-2010,"4.0,4.1,4.2"
+102,MADE GROUND,Approved,,25-05-2010,"4.0,4.1,4.2"
+103,Bituminous Material,Approved,,25-05-2010,"4.0,4.1,4.2"
+104,CONCRETE,Approved,,25-05-2010,"4.0,4.1,4.2"
+105,Wood,Approved,,17-05-2016,"4.0,4.1,4.2"
+108,Brickwork,Approved,,20-01-2021,"4.0,4.1,4.2"
+201,CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+202,Silty CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+203,Sandy CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+204,Gravelly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+205,Cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+206,Bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+207,Silty sandy CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+208,Silty gravelly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+209,Silty cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+210,Silty bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+211,Silty sandy gravelly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+212,Silty sandy cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+213,Silty sandy bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+214,Silty sandy gravelly cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+215,Silty sandy gravelly bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+216,Silty sandy gravelly cobbly bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+217,Silty sandy organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+218,Silty sandy gravelly organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+219,Silty organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+220,Sandy gravelly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+222,Sandy cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+223,Sandy bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+224,Sandy gravelly cobbly CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+225,Sandy gravelly bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+226,Sandy gravelly cobbly bouldery CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+227,Sandy organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+228,Sandy gravelly organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+229,Organic CLAY,Approved,,25-05-2010,"4.0,4.1,4.2"
+230,Gravelly cobbly CLAY,Approved,,04-04-2017,"4.0,4.1,4.2"
+231,Silty gravelly cobbly CLAY,Approved,,17-05-2017,"4.0,4.1,4.2"
+301,SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+302,Clay/Silt,Approved,,25-05-2010,"4.0,4.1,4.2"
+302,Clayey SILT,Proposed,This is changing the existing Clay/Silt to the proposed Clayey SILT. Clay/Silt has not been recognised in BS 5930 for a while so this change would make it correct. The backward incompatibility would be minimal. The alternative would be to use the next code along,26-06-2020,"4.0,4.1,4.2"
+303,Sandy SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+304,Gravelly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+305,Organic SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+309,Clayey sandy SILT,Approved,,19-04-2017,"4.0,4.1,4.2"
+310,Sandy gravelly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+312,Clayey sandy gravelly SILT,Approved,,26-10-2017,"4.0,4.1,4.2"
+314,Clayey sandy gravelly organic cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+316,Sandy cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+317,Sandy bouldery SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+318,Sandy organic SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+319,Sandy gravelly organic SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+320,Sandy gravelly cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+321,Sandy gravelly organic cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+322,Gravelly cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+323,Gravelly bouldery SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+324,Gravelly organic SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+325,Gravelly organic cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+326,Cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+327,Cobbly bouldery SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+328,Organic cobbly SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+331,Bouldery SILT,Approved,,25-05-2010,"4.0,4.1,4.2"
+332,Sandy gravelly clayey cobbly SILT,Approved,,25-07-2017,"4.0,4.1,4.2"
+401,SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+402,Clayey SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+403,Silty SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+404,Gravelly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+405,Cobbly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+406,Bouldery SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+410,Clayey gravelly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+411,Clayey gravelly cobbly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+412,Silty gravelly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+413,Silty gravelly cobbly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+414,Silty gravelly cobbly bouldery SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+415,Gravelly cobbly SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+416,Gravelly cobbly bouldery SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+417,Gravelly bouldery SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+418,Cobbly bouldery SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+419,Silty cobbly SAND,Approved,,22-05-2017,"4.0,4.1,4.2"
+430,SAND and GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+431,Organic SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+433,Silty organic SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+434,Gravelly organic SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+435,Cobbly organic SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+436,Bouldery organic SAND,Approved,,25-05-2010,"4.0,4.1,4.2"
+501,GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+502,Clayey GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+503,Silty GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+504,Sandy GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+505,Organic GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+506,Cobbly GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+507,Bouldery GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+509,Clayey sandy GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+510,Clayey cobbly GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+511,Clayey bouldery GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+512,Clayey organic GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+513,Clayey sandy cobbly GRAVEL,Approved,,04-04-2017,"4.0,4.1,4.2"
+517,Clayey sandy organic GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+520,Silty sandy GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+521,Silty cobbly GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+522,Silty bouldery GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+523,Silty organic GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+524,Silty organic sandy GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+525,Sandy cobbly GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+526,Sandy bouldery GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+527,Sandy organic GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+528,Silty sandy cobbly GRAVEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+601,PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+602,Clayey PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+603,Silty PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+604,Sandy PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+605,Gravelly PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+606,Cobbly PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+608,Clayey sandy PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+609,Clayey gravelly PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+612,Silty sandy PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+613,Silty sandy gravelly PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+614,Sandy gravelly PEAT,Approved,,25-05-2010,"4.0,4.1,4.2"
+701,COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+702,Clayey COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+703,Silty COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+704,Sandy COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+705,Gravelly COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+706,Organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+708,Clayey sandy COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+709,Clayey gravelly COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+713,Silty sandy COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+714,Silty gravelly COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+715,Silty organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+716,Silty gravelly sandy COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+717,Silty sandy organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+718,Silty sandy gravelly organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+719,Sandy gravelly COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+720,Sandy organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+721,Gravelly organic COBBLES,Approved,,25-05-2010,"4.0,4.1,4.2"
+725,COBBLES and BOULDERS,Approved,,25-05-2010,"4.0,4.1,4.2"
+730,BOULDERS,Approved,,25-05-2010,"4.0,4.1,4.2"
+731,Gravelly cobbly BOULDERS,Approved,,25-05-2010,"4.0,4.1,4.2"
+801,MUDSTONE,Approved,,25-05-2010,"4.0,4.1,4.2"
+802,SILTSTONE,Approved,,25-05-2010,"4.0,4.1,4.2"
+803,SANDSTONE,Approved,,25-05-2010,"4.0,4.1,4.2"
+804,LIMESTONE,Approved,,25-05-2010,"4.0,4.1,4.2"
+805,CHALK,Approved,,25-05-2010,"4.0,4.1,4.2"
+806,COAL,Approved,,25-05-2010,"4.0,4.1,4.2"
+807,BRECCIA,Approved,,25-05-2010,"4.0,4.1,4.2"
+808,CONGLOMERATE,Approved,,25-05-2010,"4.0,4.1,4.2"
+809,Fine grained IGNEOUS,Approved,,25-05-2010,"4.0,4.1,4.2"
+810,Medium grained IGNEOUS,Approved,,25-05-2010,"4.0,4.1,4.2"
+811,Coarse grained IGNEOUS,Approved,,25-05-2010,"4.0,4.1,4.2"
+812,Fine grained METAMORPHIC,Approved,,25-05-2010,"4.0,4.1,4.2"
+813,Medium grained METAMORPHIC,Approved,,25-05-2010,"4.0,4.1,4.2"
+814,Coarse grained METAMORPHIC,Approved,,25-05-2010,"4.0,4.1,4.2"
+815,Pyroclastic (volcanic ash),Approved,,25-05-2010,"4.0,4.1,4.2"
+816,"Gypsum, Rocksalt",Approved,,25-05-2010,"4.0,4.1,4.2"
+817,Shale,Approved,,25-05-2010,"4.0,4.1,4.2"
+818,IRONSTONE,Approved,,10-04-2017,"4.0,4.1,4.2"
+819,SLATE,Approved,,04-12-2017,"4.0,4.1,4.2"
+820,HALITE,Proposed,,24-06-2020,"4.0,4.1,4.2"
+996,Broken Ground,Approved,,27-06-2017,"4.0,4.1,4.2"
+997,Undetermined,Approved,,01-10-2015,"4.0,4.1,4.2"
+998,No Recovery,Approved,,01-10-2015,"4.0,4.1,4.2"
+999,Void,Approved,,25-05-2010,"4.0,4.1,4.2"
+GRAT_TYPE,,,,,
+DS,Dry sieve,Approved,,25-05-2010,"4.0,4.1,4.2"
+HY,Hydrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+PP,Pipette,Approved,,25-05-2010,"4.0,4.1,4.2"
+WS,Wet sieve,Approved,,25-05-2010,"4.0,4.1,4.2"
+HDPH_TYPE,,,,,
+ABS,Automatic Ballast Sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+AP,Aquifer Protection,Declined,"The HDPH group is used to record the method of hole construction rather than the purpose. String(s) of casing with/without seals may well be installed to provide aquifer protection but the hole method will still be boring, drilling, etc.",10-10-2018,"4.0,4.1,4.2"
+CC,Concrete core,Approved,,24-12-2013,"4.0,4.1,4.2"
+CH,Slope surface protection stripping,Approved,,25-05-2010,"4.0,4.1,4.2"
+CP,Cable percussion (shell and auger),Approved,,25-05-2010,"4.0,4.1,4.2"
+DCP,Dynamic cone penetrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+DP,Dynamic probe sampling,Approved,,25-05-2010,"4.0,4.1,4.2"
+DS,Dynamic Sampling,Approved,,28-11-2017,"4.0,4.1,4.2"
+EXP,Logged exposure,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCOP,GCO probe,Approved,,25-05-2010,"4.0,4.1,4.2"
+HA,Hand Auger,Approved,,25-05-2010,"4.0,4.1,4.2"
+ICBR,In situ CBR test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IDEN,In situ density test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IJ,Injection Point,Approved,,16-07-2024,"4.0,4.1,4.2"
+INST,Instrument,Approved,,25-05-2010,"4.0,4.1,4.2"
+IP,Inspection pit,Approved,,25-05-2010,"4.0,4.1,4.2"
+IRDX,In situ redox test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IRES,In situ resistivity,Approved,,25-05-2010,"4.0,4.1,4.2"
+ISPT,Standard penetration test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IVAN,In situ vane test,Approved,,25-05-2010,"4.0,4.1,4.2"
+OP,Observation pit/trench,Approved,,25-05-2010,"4.0,4.1,4.2"
+PC,Pavement core,Approved,,03-11-2017,"4.0,4.1,4.2"
+PM,Pressuremeter test hole,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPR,Peat probe,Approved,,21-10-2025,"4.0,4.1,4.2"
+RC,Rotary cored,Approved,,25-05-2010,"4.0,4.1,4.2"
+RCG,Rotary drilling in common ground,Approved,,25-05-2010,"4.0,4.1,4.2"
+RO,Rotary open hole,Approved,,25-05-2010,"4.0,4.1,4.2"
+RPC,Russian Peat Corer,Approved,,13-12-2017,"4.0,4.1,4.2"
+SCP,Static cone penetrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+SH,Shaft,Approved,,25-05-2010,"4.0,4.1,4.2"
+SNC,Sonic core drilling,Approved,,25-05-2010,"4.0,4.1,4.2"
+TP,Trial pit/trench,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRAV,Linear logging traverse or scanline survey,Approved,,25-05-2010,"4.0,4.1,4.2"
+VC,Vibrocore,Approved,,25-05-2010,"4.0,4.1,4.2"
+VE,Vacuum Excavation,Approved,,01-11-2013,"4.0,4.1,4.2"
+W,Wash boring,Approved,,25-05-2010,"4.0,4.1,4.2"
+WLS,Dynamic (windowless) sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+WS,Window Sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+ICBR_TYPE,,,,,
+DCP,Dynamic cone penetrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+IN SITU CBR,In situ CBR apparatus,Approved,,25-05-2010,"4.0,4.1,4.2"
+MEXECONE,Mexecone,Approved,,25-05-2010,"4.0,4.1,4.2"
+IDEN_TYPE,,,,,
+CORE,Core,Approved,,08-12-2020,"4.0,4.1,4.2"
+NUCLEAR,Nuclear,Approved,,18-01-2022,"4.0,4.1,4.2"
+SAND,Sand Replacement/Cone,Approved,,18-01-2022,"4.0,4.1,4.2"
+WATER,Water Replacement,Approved,,18-01-2022,"4.0,4.1,4.2"
+IRES_TYPE,,,,,
+DPDP,Dipole-dipole array,Approved,,08-12-2020,"4.0,4.1,4.2"
+OWEN,Offset-Wenner array,Approved,,08-12-2020,"4.0,4.1,4.2"
+SCHL,Schlumberger array,Approved,,08-12-2020,"4.0,4.1,4.2"
+SQA,Square array,Approved,,08-12-2020,"4.0,4.1,4.2"
+WEN,Wenner array,Approved,,08-12-2020,"4.0,4.1,4.2"
+ISPT_TYPE,,,,,
+C,Cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+S,Split spoon,Approved,,25-05-2010,"4.0,4.1,4.2"
+ISTA_FTU,,,,,
+BANDPASS,Bandpass,Approved,,31-12-2025,4.2
+HIGH PASS,High pass,Approved,,31-12-2025,4.2
+LOW PASS,Low pass,Approved,,31-12-2025,4.2
+ISTA_MIVL,,,,,
+AVERAGE TIME INTERVAL,Average time interval,Approved,,31-12-2025,4.2
+PSEUDO,Pseudo,Approved,,31-12-2025,4.2
+TRUE,TRUE,Approved,,31-12-2025,4.2
+ISTA_RCOM,,,,,
+AVERAGE,Average of X and Y,Approved,,31-12-2025,4.2
+FULL WAVE FORM,Full wave form,Approved,,31-12-2025,4.2
+X,X direction,Approved,,31-12-2025,4.2
+Y,Y direction,Approved,,31-12-2025,4.2
+Z,Z direction,Approved,,31-12-2025,4.2
+ISTA_WVTY,,,,,
+P,Compression wave,Approved,,31-12-2025,4.2
+S,Shear wave,Approved,,31-12-2025,4.2
+ISTG_MTO,,,,,
+ASSUMED,Assumed,Approved,,31-12-2025,4.2
+PRE-CALIBRATED,Calibrated prior to mobilization,Approved,,31-12-2025,4.2
+SOURCE EACH SIGNAL,Source measurement for each signal,Approved,,31-12-2025,4.2
+SOURCE PER LOCATION,Single source measurement for the location,Approved,,31-12-2025,4.2
+ISTG_RECC,,,,,
+DUAL,Dual,Approved,,31-12-2025,4.2
+SINGLE,Single,Approved,,31-12-2025,4.2
+ISTG_SOUR,,,,,
+7 KG SLEDGEHAMMER,7 kg sledgehammer,Approved,,31-12-2025,4.2
+SPRING LOADED PISTON,Spring loaded piston,Approved,,31-12-2025,4.2
+ISTG_TYPE,,,,,
+CST,Cross-hole test in borehole,Approved,,31-12-2025,4.2
+DST,Down-hole test in borehole,Approved,,31-12-2025,4.2
+SCPT,Seismic cone penetration test,Approved,,31-12-2025,4.2
+SDMT,Seismic flat blade dilatometer,Approved,,31-12-2025,4.2
+ISTS_TYPE,,,,,
+H,Single horizontal,Approved,,31-12-2025,4.2
+HL,Horizontal left,Approved,,31-12-2025,4.2
+HR,Horizontal right,Approved,,31-12-2025,4.2
+HV,Horizontal vibrating,Approved,,31-12-2025,4.2
+V,Vertical,Approved,,31-12-2025,4.2
+VV,Vertical vibrating,Approved,,31-12-2025,4.2
+IVAN_TYPE,,,,,
+BOREHOLE,Borehole vane,Approved,,25-05-2010,"4.0,4.1,4.2"
+CPT,CPT Vane,Approved,,28-02-2019,"4.0,4.1,4.2"
+FIELD,Hand-held field vane,Approved,,25-05-2010,"4.0,4.1,4.2"
+TORVANE,Torvane,Approved,,08-12-2020,"4.0,4.1,4.2"
+LBST_STAT,,,,,
+AWAITING START,Await start,Approved,,25-05-2010,"4.0,4.1,4.2"
+CANCELLED,Cancelled,Approved,,21-01-2025,"4.0,4.1,4.2"
+COMPLETED,Completed,Approved,,25-05-2010,"4.0,4.1,4.2"
+IN PROGRESS,In progress,Approved,,25-05-2010,"4.0,4.1,4.2"
+NOT RECEIVED,Sample has not been delivered to the testing laboratory,Approved,,01-02-2017,"4.0,4.1,4.2"
+NOT REQUIRED,Test is not required dependant on results of another test,Approved,,20-02-2024,"4.0,4.1,4.2"
+RESTRICTED,Restricted,Approved,,25-05-2010,"4.0,4.1,4.2"
+LDEN_COND,,,,,
+RECOMPACTED,Recompacted,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+LDEN_SMTY,,,,,
+BLOCK SAMPLE,Block sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+CYLINDER,Cylinder,Approved,,25-05-2010,"4.0,4.1,4.2"
+LDEN_TYPE,,,,,
+IMMERSION,Immersion/displacement measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+LINEAR,Linear measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+LLPL_CONE,,,,,
+60g/60deg,60g/60deg,Approved,,08-12-2020,"4.1,4.2"
+80g/30deg,80g/30deg,Approved,,21-09-2020,"4.1,4.2"
+LLPL_POIN,,,,,
+FOUR,Four point,Approved,,08-12-2020,"4.1,4.2"
+ONE,One point,Approved,,08-12-2020,"4.1,4.2"
+LLPL_TYPE,,,,,
+CASAGRANDE,Casagrande,Approved,,21-09-2021,"4.1,4.2"
+FALL CONE,Fall cone,Approved,,08-12-2020,"4.1,4.2"
+LOCA_GREF,,,,,
+ITM,Ordnance Survey Ireland Irish Transverse Mercator,Approved,,25-05-2010,"4.0,4.1,4.2"
+LOCAL,Local Grid,Approved,,25-05-2010,"4.0,4.1,4.2"
+OSGB,Ordnance Survey Great Britain National Grid,Approved,,25-05-2010,"4.0,4.1,4.2"
+OSI,Ordnance Survey Ireland Irish Grid,Approved,,25-05-2010,"4.0,4.1,4.2"
+LOCA_STAT,,,,,
+DRAFT,Draft data,Approved,,25-05-2010,"4.0,4.1,4.2"
+FINAL,Final data,Approved,,25-05-2010,"4.0,4.1,4.2"
+HISTORIC,Historical data converted from paper records,Approved,,25-05-2010,"4.0,4.1,4.2"
+PRELIM,Preliminary data,Approved,,25-05-2010,"4.0,4.1,4.2"
+PROPOSED,Proposed data,Approved,,08-12-2020,"4.0,4.1,4.2"
+LOCA_TYPE,,,,,
+ABS,Automatic Ballast Sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+AUGH,Hollow Stem Auger,Approved,,08-12-2017,"4.0,4.1,4.2"
+AUGS,Solid Stem Auger,Approved,,08-12-2017,"4.0,4.1,4.2"
+BPT,Ball penetrometer,Approved,,31-12-2025,4.2
+CC,Concrete core,Approved,,24-12-2013,"4.0,4.1,4.2"
+CH,Slope surface protection stripping,Approved,,25-05-2010,"4.0,4.1,4.2"
+CP,Cable percussion (shell and auger),Approved,,25-05-2010,"4.0,4.1,4.2"
+CPT,Electrical cone penetration test or electrical piezocone test,Approved,,31-12-2025,4.2
+DCP,Dynamic cone penetrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+DP,Dynamic probe sampling,Approved,,25-05-2010,"4.0,4.1,4.2"
+DS,Dynamic Sampler,Approved,,22-08-2016,"4.0,4.1,4.2"
+DWS,Drinking water sampling location,Declined,See SLDW/SLSP/SLSW entries instead,21-09-2021,"4.0,4.1,4.2"
+EH,Exploratory Hole,Approved,,26-09-2012,"4.0,4.1,4.2"
+EXP,Logged exposure,Approved,,25-05-2010,"4.0,4.1,4.2"
+GAMC,Gamma cone,Approved,,31-12-2025,4.2
+GC,Gravity Core,Approved,,19-12-2023,"4.0,4.1,4.2"
+GCOP,GCO probe,Approved,,25-05-2010,"4.0,4.1,4.2"
+HA,Hand Auger,Approved,,25-05-2010,"4.0,4.1,4.2"
+ICBR,In situ CBR test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IDEN,In situ density test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IJ,Injection Point,Approved,,16-07-2024,"4.0,4.1,4.2"
+INST,instrument,Approved,,25-05-2010,"4.0,4.1,4.2"
+IP,Inspection pit,Approved,,25-05-2010,"4.0,4.1,4.2"
+IPLT,In situ plate loading test,Approved,,13-01-2014,"4.0,4.1,4.2"
+IRDX,In situ redox test,Approved,,25-05-2010,"4.0,4.1,4.2"
+IRES,In situ resistivity,Approved,,25-05-2010,"4.0,4.1,4.2"
+IVAN,In situ vane test,Approved,,25-05-2010,"4.0,4.1,4.2"
+LSW,Landfill Spike/Pin Well,Approved,,21-09-2021,"4.0,4.1,4.2"
+MGC,Magnetometer cone,Approved,,31-12-2025,4.2
+MSTP,Mostap sampling position,Approved,,01-02-2018,"4.0,4.1,4.2"
+OP,Observation pit/trench,Approved,,25-05-2010,"4.0,4.1,4.2"
+PC,Pavement core,Approved,,03-11-2017,"4.0,4.1,4.2"
+PM,Pressuremeter test hole,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPR,Peat probe,Approved,,28-10-2016,"4.0,4.1,4.2"
+RC,Rotary cored,Approved,,25-05-2010,"4.0,4.1,4.2"
+RCG,Rotary drilling in common ground,Approved,,25-05-2010,"4.0,4.1,4.2"
+RO,Rotary open hole,Approved,,25-05-2010,"4.0,4.1,4.2"
+RPC,Russian Peat Corer,Approved,,13-12-2017,"4.0,4.1,4.2"
+SCP,Static cone penetrometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+SH,Shaft,Approved,,25-05-2010,"4.0,4.1,4.2"
+SL,Sampling Location,Approved,,07-09-2010,"4.0,4.1,4.2"
+SLDW,Sampling Location - Drinking water,Approved,Can be used for drinking water tap/potable water source,21-09-2021,"4.0,4.1,4.2"
+SLSP,Sampling Location - Stockpile,Approved,,21-09-2021,"4.0,4.1,4.2"
+SLSW,Sampling Location - Surface water,Approved,,21-09-2021,"4.0,4.1,4.2"
+SNC,Sonic core drilling,Approved,,25-05-2010,"4.0,4.1,4.2"
+SPR,Bioremediation spray location,Approved,,24-09-2024,"4.0,4.1,4.2"
+STC,Structure Coring,Approved,,23-06-2017,"4.0,4.1,4.2"
+SWS,Surface Water Sample,Declined,See SLDW/SLSP/SLSW entries instead,27-02-2019,"4.0,4.1,4.2"
+T-BAR,T-Bar penetrometer,Approved,,31-12-2025,4.2
+TMP,Tidal Monitoring Point,Approved,,09-12-2014,"4.0,4.1,4.2"
+TP,Trial pit/trench,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRAV,Linear logging traverse or scanline survey,Approved,,25-05-2010,"4.0,4.1,4.2"
+TT,Trial trench,Approved,,02-10-2019,"4.0,4.1,4.2"
+VC,Vibrocore,Approved,,25-05-2010,"4.0,4.1,4.2"
+VE,Vacuum Excavation,Approved,,01-11-2013,"4.0,4.1,4.2"
+W,Wash boring,Approved,,25-05-2010,"4.0,4.1,4.2"
+WLS,Dynamic (windowless) sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+WP,Wellpoint,Approved,,26-04-2022,"4.0,4.1,4.2"
+WS,Window Sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+LPDN_GAS,,,,,
+Helium,Helium,Approved,,08-12-2020,"4.1,4.2"
+LPDN_TYPE,,,,,
+GAS JAR,Gas jar method,Approved,,25-05-2010,"4.0,4.1,4.2"
+LARGE PYK,Large pyknometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+SMALL PYK,Small pyknometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+WIRE BASKET,Wire basket method,Approved,,28-01-2022,"4.0,4.1,4.2"
+LUCT_MODE,,,,,
+Brittle,Brittle,Approved,,08-12-2020,"4.1,4.2"
+LUCT_TYPE,,,,,
+UNDISTURBED,Undisturbed,Approved,,08-12-2020,"4.1,4.2"
+LVAN_TYPE,,,,,
+HV,Hand vane,Approved,,08-12-2020,"4.1,4.2"
+LV,Laboratory vane,Approved,,08-12-2020,"4.1,4.2"
+TV,Torvane,Approved,,08-12-2020,"4.1,4.2"
+MOND_TYPE,,,,,
+ANGA,Rotation/Tilt in direction A,Approved,,25-05-2010,"4.0,4.1,4.2"
+ANGB,Rotation/Tilt in direction B,Approved,,25-05-2010,"4.0,4.1,4.2"
+ANGC,Rotation in direction C,Approved,,25-05-2010,"4.0,4.1,4.2"
+ASB,Asbestos fibre concentration,Proposed,,25-11-2019,"4.0,4.1,4.2"
+BAR,Barometric pressure at time of monitoring,Approved,,25-05-2010,"4.0,4.1,4.2"
+BART,Atmospheric pressure trend e.g. rising/falling/steady,Approved,,07-10-2015,"4.0,4.1,4.2"
+BRG,Bearing,Approved,,25-05-2010,"4.0,4.1,4.2"
+CURR,Current,Approved,,25-05-2010,"4.0,4.1,4.2"
+DATU,Hole Datum as surveyed on monitoring round,Approved,,11-04-2019,"4.0,4.1,4.2"
+DBSE,Depth to base of installation on monitoring round,Approved,,25-10-2016,"4.0,4.1,4.2"
+DNAPL,Dense Nonaqueous Phase Liquid,Approved,,15-05-2014,"4.0,4.1,4.2"
+DO,Dissolved Oxygen,Approved,,17-06-2016,"4.0,4.1,4.2"
+DOS,Steady dissolved oxygen,Proposed,,18-10-2022,"4.0,4.1,4.2"
+DOWNTEMP,Downhole temperature,Approved,,17-03-2016,"4.0,4.1,4.2"
+DOWNTEMPS,Steady downhole temperature,Proposed,,18-10-2022,"4.0,4.1,4.2"
+DSPA,Displacement in direction A,Approved,,25-05-2010,"4.0,4.1,4.2"
+DSPB,Displacement in direction B,Approved,,25-05-2010,"4.0,4.1,4.2"
+DSPC,Displacement in direction C,Approved,,25-05-2010,"4.0,4.1,4.2"
+DSTA,Distance A from LOCA_ID (slip indicator top rod),Approved,,25-05-2010,"4.0,4.1,4.2"
+DSTB,Distance B from LOCA_ID (slip indicator top rod),Approved,,25-05-2010,"4.0,4.1,4.2"
+DSTL,Distance,Approved,,25-05-2010,"4.0,4.1,4.2"
+EAST,Absolute position (Easting),Approved,,25-05-2010,"4.0,4.1,4.2"
+EC,Electrical conductivity,Approved,,25-10-2016,"4.0,4.1,4.2"
+ECA,Actual Conductivity,Approved,,27-08-2019,"4.0,4.1,4.2"
+ECS,Specific Conductivity,Approved,,27-08-2019,"4.0,4.1,4.2"
+ECSS,Steady electrical conductivity,Proposed,,18-10-2022,"4.0,4.1,4.2"
+ENV,Details of weather and environmental conditions during monitoring,Approved,,22-05-2025,"4.0,4.1,4.2"
+ERAT,Volume extraction rate,Approved,,25-05-2010,"4.0,4.1,4.2"
+FLOW,Flow,Approved,,25-05-2010,"4.0,4.1,4.2"
+FORC,Force,Approved,,25-05-2010,"4.0,4.1,4.2"
+GAMP,Peak ammonia concentration,Approved,,04-09-2019,"4.0,4.1,4.2"
+GAMS,Steady ammonia concentration,Approved,,04-09-2019,"4.0,4.1,4.2"
+GAUG,Gauge length,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCD,Carbon dioxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCDP,Peak carbon dioxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCDS,Steady carbon dioxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCM,Carbon monoxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCMP,Peak carbon monoxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCMS,Steady carbon monoxide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GCMT,Trend carbon monoxide concentration,Proposed,,28-06-2019,"4.0,4.1,4.2"
+GFLO,Gas flow rate,Approved,,25-05-2010,"4.0,4.1,4.2"
+GFLOP,Peak gas flow rate,Approved,,17-03-2016,"4.0,4.1,4.2"
+GFLOS,Steady gas flow rate,Approved,,17-03-2016,"4.0,4.1,4.2"
+GFLOT,Trend gas flow rate,Proposed,,28-06-2019,"4.0,4.1,4.2"
+GHP,Peak hydrogen concentration,Approved,,04-09-2019,"4.0,4.1,4.2"
+GHS,Steady hydrogen concentration,Approved,,04-09-2019,"4.0,4.1,4.2"
+GM,Measured methane as percentage of LEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+GMP,Peak methane as percentage of LEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+GMS,Steady methane as percentage of LEL,Approved,,25-05-2010,"4.0,4.1,4.2"
+GMT,Trend methane as percentage of LEL,Proposed,,28-06-2019,"4.0,4.1,4.2"
+GNIT,Nitrogen concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+GNITP,Peak nitrogen concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+GNITS,Steady nitrogen concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+GNITT,Trend nitrogen concentration,Proposed,,28-06-2019,"4.0,4.1,4.2"
+GOX,Oxygen concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+GOXM,Minimum oxygen concentration,Approved,,01-11-2018,"4.0,4.1,4.2"
+GOXP,Steady oxygen concentration,Approved,"Note the final character abbreviation is a 'P', not an 'S'. This is a historic error, but continues in normal use for legacy data compatibility",25-05-2010,"4.0,4.1,4.2"
+GOXS,Peak oxygen concentration,Approved,"Note the final character abbreviation is an 'S', not 'P'. This is a historic error, but continues in normal use for legacy data compatibility",25-05-2010,"4.0,4.1,4.2"
+GOXT,Trend oxygen concentration,Proposed,,28-06-2019,"4.0,4.1,4.2"
+GPRS,Differential Pressure,Approved,,25-05-2010,"4.0,4.1,4.2"
+GPRSP,Peak differential pressure,Proposed,,11-11-2020,"4.0,4.1,4.2"
+GPRSS,Steady differential pressure,Proposed,,11-11-2020,"4.0,4.1,4.2"
+GPRST,Trend differential Pressure,Proposed,,28-06-2019,"4.0,4.1,4.2"
+HYC,Hydrogen cyanide concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+HYCP,Peak hydrogen cyanide concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+HYCS,Steady hydrogen cyanide concentration,Approved,,17-03-2016,"4.0,4.1,4.2"
+HYS,Hydrogen sulphide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+HYSP,Peak hydrogen sulphide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+HYSS,Steady hydrogen sulphide concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+HYST,Trend hydrogen sulphide concentration,Proposed,,28-06-2019,"4.0,4.1,4.2"
+LEV,Absolute position (Level),Approved,,25-05-2010,"4.0,4.1,4.2"
+LNAPL,Light Nonaqueous Phase Liquid,Approved,,15-05-2014,"4.0,4.1,4.2"
+NRTH,Absolute position (Northing),Approved,,25-05-2010,"4.0,4.1,4.2"
+OPP,Oxygen Partial Pressure,Approved,,12-09-2019,"4.0,4.1,4.2"
+PH,Potential of Hydrogen (pH),Approved,,22-06-2017,"4.0,4.1,4.2"
+PHS,Steady pH,Proposed,,18-10-2022,"4.0,4.1,4.2"
+PID,Photo Ionisation Detector Reading,Approved,,20-09-2018,"4.0,4.1,4.2"
+PIDP,Peak Photo Ionisation Detector Reading,Approved,,20-09-2018,"4.0,4.1,4.2"
+PIDS,Steady Photo Ionisation Detector Reading,Approved,,20-09-2018,"4.0,4.1,4.2"
+PPID,Peak Photo Ionisation Detector Reading,Declined,PIDP would be more appropriate,15-05-2018,"4.0,4.1,4.2"
+PRES,Pressure,Approved,,29-01-2018,"4.0,4.1,4.2"
+RAD,Radon gas,Approved,,05-11-2019,"4.0,4.1,4.2"
+RAIN,Rainfall,Approved,,25-05-2010,"4.0,4.1,4.2"
+RDX,Redox potential,Approved,,25-10-2016,"4.0,4.1,4.2"
+RDXS,Steady redox potential,Proposed,,18-10-2022,"4.0,4.1,4.2"
+RES,Apparent resistivity,Approved,,25-10-2016,"4.0,4.1,4.2"
+RFLOW,River flowrate measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+RLEVEL,River level measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+ROTS,Rotational speed,Approved,,25-05-2010,"4.0,4.1,4.2"
+SAL,Salinity,Approved,,25-10-2016,"4.0,4.1,4.2"
+SALS,Steady salinity,Proposed,,18-10-2022,"4.0,4.1,4.2"
+SAMPTEMP,Sample temperature,Approved,,01-02-2018,"4.0,4.1,4.2"
+STAT,Status,Approved,,25-05-2010,"4.0,4.1,4.2"
+STRA,Strain in direction A,Approved,,25-05-2010,"4.0,4.1,4.2"
+STRB,Strain in direction B,Approved,,25-05-2010,"4.0,4.1,4.2"
+STRC,Strain in direction C,Approved,,25-05-2010,"4.0,4.1,4.2"
+TDS,Total dissolved solids,Approved,,25-10-2016,"4.0,4.1,4.2"
+TDSS,Steady total dissolved solids,Proposed,,18-10-2022,"4.0,4.1,4.2"
+TEMP,Atmospheric temperature,Approved,,25-05-2010,"4.0,4.1,4.2"
+TGM,Total methane concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+TGMP,Peak total methane concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+TGMS,Steady total methane concentration,Approved,,25-05-2010,"4.0,4.1,4.2"
+TGMT,Trend total methane concentration,Proposed,,28-06-2019,"4.0,4.1,4.2"
+TORQ,Torque,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRST,Thrust,Approved,,25-05-2010,"4.0,4.1,4.2"
+TURB,Turbidity,Approved,,22-06-2017,"4.0,4.1,4.2"
+TURBS,Steady turbidity,Proposed,,18-10-2022,"4.0,4.1,4.2"
+UPT,Up/run time,Approved,,25-05-2010,"4.0,4.1,4.2"
+VEL,Velocity,Approved,,25-05-2010,"4.0,4.1,4.2"
+VOC,Volatile organic compound,Approved,,10-12-2018,"4.0,4.1,4.2"
+VOCP,Peak volatile organic compound,Approved,,15-04-2019,"4.0,4.1,4.2"
+VOL,Volume,Approved,,25-05-2010,"4.0,4.1,4.2"
+VOLT,Voltage,Approved,,25-05-2010,"4.0,4.1,4.2"
+WDEP,Depth to water from LOCA_ID datum,Approved,,25-05-2010,"4.0,4.1,4.2"
+WHD,Head of water above tip,Approved,,25-05-2010,"4.0,4.1,4.2"
+WLEV,Water Level Elevation (m above OD),Proposed,,11-04-2019,"4.0,4.1,4.2"
+MONG_TYPE,,,,,
+AIR,"Air monitoring point (asbestos, dust, noise, etc)",Proposed,,25-11-2019,"4.0,4.1,4.2"
+ANEM,Anemometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+DM,Discontinuity monitoring,Approved,,25-05-2010,"4.0,4.1,4.2"
+EPCE,Embedment pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+EPCH,Embedment pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+EPCP,Embedment pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+EPIE,Electronic Piezometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+ESET,Electronic settlement cell/gauges,Approved,,25-05-2010,"4.0,4.1,4.2"
+ETL,Optical extensometer,Approved,,20-09-2016,"4.0,4.1,4.2"
+ETM,Magnetic Extensometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+ETR,Rod Extensometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+ETT,Tape Extensometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+GAW,Gas abstraction well,Proposed,,12-08-2010,"4.0,4.1,4.2"
+GMP,Gas monitoring point,Approved,,25-05-2010,"4.0,4.1,4.2"
+GWMP,Groundwater monitoring point,Approved,,25-05-2010,"4.0,4.1,4.2"
+HPIE,Hydraulic piezometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+HSET,Hydraulic settlement cell/gauges,Approved,,25-05-2010,"4.0,4.1,4.2"
+ICE,Inclinometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+ICM,Inclinometer - Manual,Approved,,25-05-2010,"4.0,4.1,4.2"
+IPCE,Interface pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+IPCH,Interface pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+IPCP,Interface pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+LC,Load cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+MSET,Levelling point or plate,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPCE,Push in pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPCH,Push in pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPCP,Push in pressure cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+PPIE,Pneumatic Piezometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+PSET,Pneumatic settlement cell/gauges,Approved,,25-05-2010,"4.0,4.1,4.2"
+RAIN,Rain Gauge,Approved,,25-05-2010,"4.0,4.1,4.2"
+RIVER,River Gauging Station,Approved,,25-05-2010,"4.0,4.1,4.2"
+SG,Strain gauge,Approved,,25-05-2010,"4.0,4.1,4.2"
+SLIP,Slip indicator,Approved,,25-05-2010,"4.0,4.1,4.2"
+SP,Standpipe,Approved,,25-05-2010,"4.0,4.1,4.2"
+SPIE,Standpipe piezometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+SWMP,Surface Water Monitoring Point,Approved,,20-02-2024,"4.0,4.1,4.2"
+TMB,Tiltmeter,Approved,,25-05-2010,"4.0,4.1,4.2"
+TMU,Tiltmeter - Uniaxial,Approved,,25-05-2010,"4.0,4.1,4.2"
+TP,Temperature measuring point,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRT,Thermal Response Loop,Approved,,20-11-2019,"4.0,4.1,4.2"
+TS,Total station point,Approved,,25-05-2010,"4.0,4.1,4.2"
+VWP,Vibrating Wire Piezometer,Declined,08/12/2020 please use EPIE (Electronic Piezometer) instead,04-10-2016,"4.0,4.1,4.2"
+MONS_TYPE,,,,,
+DAMAGED,Damaged,Approved,,31-12-2025,4.2
+OFFLINE,Offline,Approved,,31-12-2025,4.2
+ONLINE,Online,Approved,,31-12-2025,4.2
+RE-CALIBRATED,Re-Calibrated,Approved,,31-12-2025,4.2
+REPLACED,Replaced,Approved,,31-12-2025,4.2
+PIPE_TYPE,,,,,
+PIEZOMETER_TIP,Piezometer Tip,Declined,,02-05-2017,"4.0,4.1,4.2"
+PLAIN,Plain,Approved,,25-05-2010,"4.0,4.1,4.2"
+SL-GEONET,Slotted pipe with Geonet geofilter.,Proposed,,25-01-2023,"4.0,4.1,4.2"
+SL-GEORAP,Slotted pipe with Geosock georap.,Proposed,,25-01-2023,"4.0,4.1,4.2"
+SL-GEOSOCK,Slotted pipe with Geosock geofilter.,Proposed,,25-01-2023,"4.0,4.1,4.2"
+SLOTTED,Slotted,Approved,,25-05-2010,"4.0,4.1,4.2"
+PMMG_MPLM,,,,,
+PLM,Directly measured,Approved,,31-12-2025,4.2
+PLMDH,Double hyperbolic,Approved,,31-12-2025,4.2
+PLMH,Hyperbolic,Approved,,31-12-2025,4.2
+PLMR,Reciprocal,Approved,,31-12-2025,4.2
+PMMG_TC,,,,,
+AUTOMATED,Automated,Approved,,31-12-2025,4.2
+MANUAL,Manual,Approved,,31-12-2025,4.2
+PMMG_TYPE,,,,,
+EM,Emulated Menard Pressuremeter with measurement of radial displacement,Approved,,31-12-2025,4.2
+MPM,Menard Pressuremeter,Approved,,31-12-2025,4.2
+PMTG_CMT,,,,,
+T,60-degree cone-shaped lower end without sensors,Approved,,31-12-2025,4.2
+TC,Cone penetrometer according to EN ISO 22476 1,Proposed,,31-12-2025,4.2
+PMTG_SBCT,,,,,
+DISC,Stirring paddle,Approved,,31-12-2025,4.2
+FB,Flat blade,Approved,,31-12-2025,4.2
+FFC,Full face cutter,Approved,,31-12-2025,4.2
+JET,High pressure water jet,Approved,,31-12-2025,4.2
+RRB,Rock roller bit,Approved,,31-12-2025,4.2
+PMTG_SBHT,,,,,
+LPWJ,Lateral pressurised water jet,Approved,,31-12-2025,4.2
+RC,Rotating cutter,Approved,,31-12-2025,4.2
+UPWJ,Upward pressurised water jet,Approved,,31-12-2025,4.2
+PMTG_TC,,,,,
+STRAIN,Strain,Approved,,31-12-2025,4.2
+STRESS,Stress,Approved,,31-12-2025,4.2
+PMTG_TYPE,,,,,
+HPD,High pressure dilatometer,Approved,,25-05-2010,"4.0,4.1,4.2"
+MPM,Menard type pressuremeter,Approved,,25-05-2010,"4.0,4.1,4.2"
+PIP,Push-in pressuremeter,Approved,,25-05-2010,"4.0,4.1,4.2"
+RPM,Reaming pressuremeter,Approved,,31-12-2025,4.2
+SBP,Self boring pressuremeter,Approved,,25-05-2010,"4.0,4.1,4.2"
+WRSBP,Weak rock self boring pressuremeter,Approved,,25-05-2010,"4.0,4.1,4.2"
+PMTZ_PARM,,,,,
+PPA,Pore pressure cell A,Approved,,31-12-2025,4.2
+PPB,Pore pressure cell B,Approved,,31-12-2025,4.2
+SA1,Arm 1,Approved,,31-12-2025,4.2
+SA2,Arm 2,Approved,,31-12-2025,4.2
+SA3,Arm 3,Approved,,31-12-2025,4.2
+SA4,Arm 4,Approved,,31-12-2025,4.2
+SA5,Arm 5,Approved,,31-12-2025,4.2
+SA6,Arm 6,Approved,,31-12-2025,4.2
+TPC1,Total pressure cell 1,Approved,,31-12-2025,4.2
+TPC2,Total pressure cell 2,Approved,,31-12-2025,4.2
+PTST_CELL,,,,,
+CHP,Constant head permeameter,Approved,,25-05-2010,"4.0,4.1,4.2"
+FHP,Falling head permeameter,Approved,,25-05-2010,"4.0,4.1,4.2"
+HYDRAULIC CELL,Hydraulic cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRIAXIAL CELL,Triaxial cell,Approved,,25-05-2010,"4.0,4.1,4.2"
+PTST_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+PTST_TYPE,,,,,
+CONSTANT HEAD,Constant head,Approved,,20-09-2021,"4.1,4.2"
+FALLING HEAD,Falling head,Approved,,20-09-2021,"4.1,4.2"
+RESC_CTYP,,,,,
+ISOTROPIC,Isotropic,Approved,,08-12-2020,"4.1,4.2"
+RESD_CNDS,,,,,
+DRAINED,Drained,Approved,,08-12-2020,"4.1,4.2"
+RESG_COND,,,,,
+UNDISTURBED,Undisturbed,Approved,,08-12-2020,"4.1,4.2"
+RESG_ORNT,,,,,
+Vertical,Vertical,Approved,,08-12-2020,"4.1,4.2"
+RPLT_PLTF,,,,,
+A,Axial,Approved,,25-05-2010,"4.0,4.1,4.2"
+B,Block,Approved,,25-05-2010,"4.0,4.1,4.2"
+D,Diametral,Approved,,25-05-2010,"4.0,4.1,4.2"
+I,Irregular lump,Approved,,25-05-2010,"4.0,4.1,4.2"
+L,Parallel to planes of weakness,Approved,,25-05-2010,"4.0,4.1,4.2"
+P,Perpendicular to planes of weakness,Approved,,25-05-2010,"4.0,4.1,4.2"
+U,Unknown,Approved,,08-12-2017,"4.0,4.1,4.2"
+RSCH_EXCV,,,,,
+BLASTING,Blasting,Approved,,08-12-2020,"4.1,4.2"
+BORING,Boring,Approved,,08-12-2020,"4.1,4.2"
+RIP,Ripping,Approved,,08-12-2020,"4.1,4.2"
+SPLIT,Mechanical Splitting,Approved,,08-12-2020,"4.1,4.2"
+RSCH_HTYP,,,,,
+L,L-Type,Approved,,08-12-2020,"4.1,4.2"
+N,N-Type,Approved,,08-12-2020,"4.1,4.2"
+RSCH_STYP,,,,,
+CORE,Core,Approved,,08-12-2020,"4.1,4.2"
+EXC,Excavation face,Approved,,08-12-2020,"4.1,4.2"
+LFB,Large field block,Approved,,08-12-2020,"4.1,4.2"
+NAT,Natural exposure,Approved,,08-12-2020,"4.1,4.2"
+SB,Saw-cut block,Approved,,08-12-2020,"4.1,4.2"
+RTEN_MODE,,,,,
+Shear,Shear,Approved,,08-12-2020,"4.1,4.2"
+RUCS_ETYP,,,,,
+AVERAGE,Average modulus,Approved,,09-11-2017,"4.0,4.1,4.2"
+SECANT,Secant modulus,Approved,,25-05-2010,"4.0,4.1,4.2"
+TANGENT,Tangent modulus,Approved,,25-05-2010,"4.0,4.1,4.2"
+RUCS_MODE,,,,,
+ALONG FOLIATION,Along foliation,Approved,,25-05-2010,"4.1,4.2"
+AXIAL,Axial,Approved,,25-05-2010,"4.1,4.2"
+CLEAVAGE,Cleavage,Approved,,25-05-2010,"4.1,4.2"
+CRUMBLED,Crumbled,Approved,,25-05-2010,"4.1,4.2"
+DIAGONAL SHEARING,Diagonal Shearing,Approved,,25-05-2010,"4.1,4.2"
+EXPLOSIVE,Explosive,Approved,,25-05-2010,"4.1,4.2"
+FRAGMENTED,Fragmented,Approved,,25-05-2010,"4.1,4.2"
+IRREGULAR,Irregular,Approved,,25-05-2010,"4.1,4.2"
+MULTIPLE FRACTURING,Multiple fracturing,Approved,,25-05-2010,"4.1,4.2"
+SHEAR,Shear,Approved,,25-05-2010,"4.1,4.2"
+SAMP_TYPE,,,,,
+ACM,"suspected asbestos-containing material separate sample. The same as ""bulk sample"" which would be taken by asbestos building surveyor.",Declined,Not appropriate for SAMP_TYPE,07-01-2020,"4.0,4.1,4.2"
+AMAL,Amalgamated sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+B,Bulk disturbed sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+BC,Box Core,Declined,The data should be stored in WINS group.,04-06-2015,"4.0,4.1,4.2"
+BLK,Block sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+C,Core sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+CB,Concrete Cube,Declined,Use abbreviation CONCB,07-03-2013,"4.0,4.1,4.2"
+CBR,CBR mould sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+COMP,"Composite sample - where the sample is made up of material from disparate unrecorded locations, coned and quartered into one composite sample",Approved,"For the case where the sample is made up of material from disparate locations, coned and quartered into one composite sample.",19-07-2019,"4.0,4.1,4.2"
+CONCB,Concrete Cube,Approved,,07-03-2013,"4.0,4.1,4.2"
+CONCC,Concrete Core,Approved,,07-03-2013,"4.0,4.1,4.2"
+CR,Concrete Core,Declined,Use abbreviation CONCC,07-03-2013,"4.0,4.1,4.2"
+D,Small disturbed sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+DSPT,Standard penetration test split spoon sample without liner,Declined,Use a SAMP_TYPE of D and SAMP_TECH (Sampling technique/method) should be used to record this information. The suggestion is to use the text 'SPT',24-02-2021,"4.0,4.1,4.2"
+DUP,"Duplicate, i.e. a second sample taken for geoenvironmental testing at sample exploratory hole and same depth. First sample would be ""ES"" SAMP_TYPE and second sample would be ""DUP"".",Declined,This is not a sample type.,07-01-2020,"4.0,4.1,4.2"
+ES,Soil sample for environmental testing,Approved,,25-05-2010,"4.0,4.1,4.2"
+EV,Vapour sample for environmental testing,Proposed,,20-02-2020,"4.0,4.1,4.2"
+EW,Water sample for environmental testing,Approved,,25-05-2010,"4.0,4.1,4.2"
+G,Gas sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+GC,Gravity Core,Proposed,,04-06-2015,"4.0,4.1,4.2"
+L,Liner sample (dynamic),Approved,,01-02-2018,"4.0,4.1,4.2"
+LB,Large bulk disturbed sample (for earthworks testing),Approved,,25-05-2010,"4.0,4.1,4.2"
+M,Mazier type sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+MOS,Mostap sample,Approved,,01-02-2018,"4.0,4.1,4.2"
+P,Piston sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+SC,STACORE,Proposed,,04-06-2015,"4.0,4.1,4.2"
+SPTLS,Standard penetration test liner sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+STACK,Stack emmision sample type,Declined,"STACK is a sampling location, not a sample type",26-04-2022,"4.1,4.2"
+TW,Thin walled push in sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+U,Undisturbed sample - open drive,Approved,,25-05-2010,"4.0,4.1,4.2"
+UT,Thin wall open drive tube sampler,Approved,,25-05-2010,"4.0,4.1,4.2"
+VC,Vibro Core,Proposed,,04-06-2015,"4.0,4.1,4.2"
+W,Water sample,Approved,,25-05-2010,"4.0,4.1,4.2"
+SCPG_TYPE,,,,,
+CC,Conductivity cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+EC,Electric cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+FFD,Fuel fluorescence cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+MC,Mechanical cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+MG,Magnetometer Cone,Approved,,18-10-2018,"4.0,4.1,4.2"
+PC,Piezo cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+SC,P & S-wave Seismic Cone,Approved,,18-10-2018,"4.0,4.1,4.2"
+TC,Temperature cone,Approved,,25-05-2010,"4.0,4.1,4.2"
+SHBG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+SHBG_TYPE,,,,,
+LARGE RSHEAR,Large Ring shear,Approved,,25-05-2010,"4.0,4.1,4.2"
+LARGE SBOX,Large Shearbox,Approved,,25-05-2010,"4.0,4.1,4.2"
+SMALL RSHEAR,Small Ring shear,Approved,,25-05-2010,"4.0,4.1,4.2"
+SMALL SBOX,Small Shearbox,Approved,,25-05-2010,"4.0,4.1,4.2"
+SUCT_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+TREG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+TREG_TYPE,,,,,
+CADC,Anisotropically consolidated drained compression with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CADE,Anisotropically consolidated drained extension with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CAUC,Anisotropically consolidated undrained compression with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CAUE,Anisotropically consolidated undrained extension with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CD,Consolidated drained (single stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+CDM,Consolidated drained (multi-stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+CIDC,Isotropically consolidated drained compression with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CIDE,Isotropically consolidated drained extension with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+CIUC,Isotropically consolidated undrained compression with pwp measurement,Approved,,20-09-2018,"4.0,4.1,4.2"
+CIUCM,Isotropically consolidated undrained compression with pwp measurement (multi-stage),Approved,,20-09-2018,"4.0,4.1,4.2"
+CU,Consolidated undrained with pwp measurement (single stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+CUM,Consolidated undrained with pwp measurement (multi-stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+UUP,Unconsolidated undrained with pwp measurement,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRET_MODE,,,,,
+Brittle,Brittle,Approved,,08-12-2020,"4.1,4.2"
+TRIG_COND,,,,,
+REMOULDED,Remoulded,Approved,,25-05-2010,"4.0,4.1,4.2"
+UNDISTURBED,Undisturbed,Approved,,25-05-2010,"4.0,4.1,4.2"
+TRIG_TYPE,,,,,
+UU,Unconsolidated quick undrained (single stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+UUM,Unconsolidated quick undrained (multi-stage),Approved,,25-05-2010,"4.0,4.1,4.2"
+TRIT_MODE,,,,,
+Brittle,Brittle,Approved,,08-12-2020,"4.1,4.2"
+WETH_SCH,,,,,
+BS 5930: 2015 AMEND 1,BS 5930: 2015 AMEND 1,Approved,,21-02-2023,"4.0,4.1,4.2"
+BS 5930:1999 AMEND 1,BS 5930:1999 Amendment 1,Approved,,25-05-2010,"4.0,4.1,4.2"
+BS 5930:1999 PRE AMEND 1,BS 5930:1999 Pre Amendment 1,Approved,,25-05-2010,"4.0,4.1,4.2"
+BS 5930:2015,BS 5930:2015,Approved,,19-04-2017,"4.0,4.1,4.2"
+BS EN ISO 14689-1:2003,BS EN ISO 14689-1:2003,Approved,,19-04-2017,"4.0,4.1,4.2"
+BS5930: 2010 AMEND 2,BS5930: 2010 Amendment 2,Approved,,07-10-2016,"4.0,4.1,4.2"
+CHANDLER APTED LC,Chandler and Apted London Clay,Approved,,25-05-2010,"4.0,4.1,4.2"
+CHANDLER MERCIA,Chandler Mercia Mudstone Weathering Grades,Approved,,25-05-2010,"4.0,4.1,4.2"
+CIRIA CHALK,CIRIA chalk weathering system,Approved,,25-05-2010,"4.0,4.1,4.2"
+CIRIA MERCIA,CIRIA C570 Simplified scheme for Mercia Mudstone,Approved,,25-05-2010,"4.0,4.1,4.2"
+GEO3,Geoguide 3,Approved,,25-05-2010,"4.0,4.1,4.2"
+ISRM,ISRM,Approved,,25-05-2010,"4.0,4.1,4.2"
+MUNDFORD,Mundford chalk weathering scale,Approved,,25-05-2010,"4.0,4.1,4.2"
+SPINK NORBURY,"Spink and Norbury, 1993",Proposed,,06-06-2019,"4.0,4.1,4.2"
+SPINK NORBURY LC,"Spink and Norbury, 1993 London Clay",Proposed,,06-06-2019,"4.0,4.1,4.2"
+WETH_SYS,,,,,
+MASS CLASS,Rock Mass Weathering Classification,Approved,,25-05-2010,"4.0,4.1,4.2"
+MASS GRADE,Rock Mass Weathering Grade,Approved,,25-05-2010,"4.0,4.1,4.2"
+MASS ZONE,Rock Mass Weathering Zone,Approved,,25-05-2010,"4.0,4.1,4.2"
+MAT CLASS,Material Weathering Classification,Approved,,24-10-2017,"4.0,4.1,4.2"
+MAT GRADE,Material Weathering Grade,Approved,,25-05-2010,"4.0,4.1,4.2"
+WGPG_TOOL,,,,,
+ABI,Acoustic Borehole Imager,Approved,,08-12-2020,"4.1,4.2"
+BDEV,Borehole Deviation,Approved,,08-12-2020,"4.1,4.2"
+BT,Borehole Temperature,Approved,,08-12-2020,"4.1,4.2"
+CAL3,Three arm Caliper,Approved,,08-12-2020,"4.1,4.2"
+CAL4,Four Arm Caliper,Approved,,08-12-2020,"4.1,4.2"
+CALX-Y,Caliper X-Y (2 x two arm Caliper),Approved,,08-12-2020,"4.1,4.2"
+DFEL,Dual Focused Resistivity,Approved,,08-12-2020,"4.1,4.2"
+DIEL,Dual Induction,Approved,,08-12-2020,"4.1,4.2"
+DMR,Downhole Magnetic Resonance,Approved,,08-12-2020,"4.1,4.2"
+ELOG,Normal Resistivity,Approved,,08-12-2020,"4.1,4.2"
+FC,Fluid Conductivity,Approved,,08-12-2020,"4.1,4.2"
+FWS,Full Waveform Sonic,Approved,,08-12-2020,"4.1,4.2"
+GGD,Dual Gamma Density,Approved,,08-12-2020,"4.1,4.2"
+HPFL,Heat Pulse Flowmeter,Approved,,08-12-2020,"4.1,4.2"
+IPFL,Impeller/Spinner Flowmeter,Approved,,08-12-2020,"4.1,4.2"
+MSUS,Magnetic Susceptibility,Approved,,08-12-2020,"4.1,4.2"
+NGR,Natural Gamma,Approved,,08-12-2020,"4.1,4.2"
+NTR,Dual Neutron,Approved,,08-12-2020,"4.1,4.2"
+OBI,Optical Borehole Imager,Approved,,08-12-2020,"4.1,4.2"
+PSL,P&S Wave Suspension Logger,Approved,,08-12-2020,"4.1,4.2"
+SGR,Spectral Gamma,Approved,,08-12-2020,"4.1,4.2"
+WGPT_CAS,,,,,
+OH,Open hole,Approved,,08-12-2020,"4.1,4.2"
+PVCG,PVC grouted,Approved,,08-12-2020,"4.1,4.2"
+PVCU,PVC ungrouted,Approved,,08-12-2020,"4.1,4.2"
+SLOT,Slotted casing,Approved,,08-12-2020,"4.1,4.2"
+STCG,Steel cased grouted,Approved,,08-12-2020,"4.1,4.2"
+STCU,Steel cased ungrouted,Approved,,08-12-2020,"4.1,4.2"
+WGPT_PARA,,,,,
+ABI-ARQD,Acoustic Borehole Imager Acoustic-RQD,Approved,,08-12-2020,"4.1,4.2"
+ABI-BAM,Acoustic Borehole Imager Borehole Azimuth Magnetic Sensor,Approved,,08-12-2020,"4.1,4.2"
+ABI-BT,Acoustic Borehole Imager Borehole Tilt,Approved,,08-12-2020,"4.1,4.2"
+ABI-CAVE,Acoustic Borehole Imager Caliper Ave,Approved,,08-12-2020,"4.1,4.2"
+ABI-CMAX,Acoustic Borehole Imager Caliper Max,Approved,,08-12-2020,"4.1,4.2"
+ABI-CMIN,Acoustic Borehole Imager Caliper Min,Approved,,08-12-2020,"4.1,4.2"
+ABI-EAST,Acoustic Borehole Imager Easting,Approved,,08-12-2020,"4.1,4.2"
+ABI-MF,Acoustic Borehole Imager Magnetic Field,Approved,,08-12-2020,"4.1,4.2"
+ABI-NORT,Acoustic Borehole Imager Northing,Approved,,08-12-2020,"4.1,4.2"
+ABI-SAM,Acoustic Borehole Imager Structure Azimuth Magnetic,Approved,,08-12-2020,"4.1,4.2"
+ABI-SAP,Acoustic Borehole Imager Structure Aperture,Approved,,08-12-2020,"4.1,4.2"
+ABI-SDIP,Acoustic Borehole Imager Structure Dip,Approved,,08-12-2020,"4.1,4.2"
+ABI-TVD,Acoustic Borehole Imager TVD,Approved,,08-12-2020,"4.1,4.2"
+BDEV-BAG,Borehole Deviation Borehole Azimuth Gyro,Approved,,08-12-2020,"4.1,4.2"
+BDEV-BAM,Borehole Deviation Borehole Azimuth Magnetic Sensor,Approved,,08-12-2020,"4.1,4.2"
+BDEV-BT,Borehole Deviation Borehole Tilt,Approved,,08-12-2020,"4.1,4.2"
+BDEV-EAST,Borehole Deviation Easting,Approved,,08-12-2020,"4.1,4.2"
+BDEV-NORT,Borehole Deviation Northing,Approved,,08-12-2020,"4.1,4.2"
+BDEV-TVD,Borehole Deviation Total Vertical Depth (TVD),Approved,,08-12-2020,"4.1,4.2"
+BT-T,Borehole Temperature,Approved,,08-12-2020,"4.1,4.2"
+CAL3-BHD,Three arm Caliper - Average Borehole Diameter,Approved,,08-12-2020,"4.1,4.2"
+CAL4-BRX1,Caliper X-Y (2 x two arm Caliper) - Borehole Radii X1,Approved,,08-12-2020,"4.1,4.2"
+CAL4-BRX2,Caliper X-Y (2 x two arm Caliper) - Borehole Radii X2,Approved,,08-12-2020,"4.1,4.2"
+CAL4-BRY1,Caliper X-Y (2 x two arm Caliper) - Borehole Radii Y1,Approved,,08-12-2020,"4.1,4.2"
+CAL4-BRY2,Caliper X-Y (2 x two arm Caliper) - Borehole Radii Y2,Approved,,08-12-2020,"4.1,4.2"
+CAL4-X1P,Caliper X-Y (2 x two arm Caliper) - X1 Position,Approved,,08-12-2020,"4.1,4.2"
+CALXY-BDX,Caliper X-Y (2 x two arm Caliper) - Borehole Diameter X,Approved,,08-12-2020,"4.1,4.2"
+CALXY-BDY,Caliper X-Y (2 x two arm Caliper) - Borehole Diameter Y,Approved,,08-12-2020,"4.1,4.2"
+DFEL-FRD,Dual Focused Resistivity Deep,Approved,,08-12-2020,"4.1,4.2"
+DFEL-FRS,Dual Focused Resistivity Shallow,Approved,,08-12-2020,"4.1,4.2"
+DIEL-CD,Dual Induction - Conductivity Deep,Approved,,08-12-2020,"4.1,4.2"
+DIEL-CS,Dual Induction - Conductivity Shallow,Approved,,08-12-2020,"4.1,4.2"
+DMR-CBWV,Downhole Magnetic Resonance - Capillary bound water volume,Approved,,08-12-2020,"4.1,4.2"
+DMR-CLBWV,Downhole Magnetic Resonance - Clay bound water volume,Approved,,08-12-2020,"4.1,4.2"
+DMR-FMWV,Downhole Magnetic Resonance - Free or mobile water volume,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSD1,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SDR q1,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSD2,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SDR q2,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSD3,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SDR q3,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSO1,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SOE q1,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSO2,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SOE q2,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPSO3,Downhole Magnetic Resonance - Estimated Hydraulic Permeability SOE q3,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPT1,Downhole Magnetic Resonance - Estimated Hydraulic Permeability TIM q1,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPT2,Downhole Magnetic Resonance - Estimated Hydraulic Permeability TIM q2,Approved,,08-12-2020,"4.1,4.2"
+DMR-HPT3,Downhole Magnetic Resonance - Estimated Hydraulic Permeability TIM q3,Approved,,08-12-2020,"4.1,4.2"
+DMR-MC,Downhole Magnetic Resonance - Moisture Content,Approved,,08-12-2020,"4.1,4.2"
+DMR-T2LM,Downhole Magnetic Resonance - T2 Logarithmic Mean,Approved,,08-12-2020,"4.1,4.2"
+DMR-TP,Downhole Magnetic Resonance - Total Porosity,Approved,,08-12-2020,"4.1,4.2"
+ELOG-RES16,Normal Resistivity - 16inch Resistivity,Approved,,08-12-2020,"4.1,4.2"
+ELOG-RES32,Normal Resistivity - 32inch Resistivity,Approved,,08-12-2020,"4.1,4.2"
+ELOG-RES64,Normal Resistivity - 64inch Resistivity,Approved,,08-12-2020,"4.1,4.2"
+ELOG-RES8,Normal Resistivity - 8inch Resistivity,Approved,,08-12-2020,"4.1,4.2"
+FC-FC,Fluid Conductivity,Approved,,08-12-2020,"4.1,4.2"
+FWS-ART1,Full Waveform Sonic - Amplitude Rx1-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-ART2,Full Waveform Sonic - Amplitude Rx1-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-CBI,Full Waveform Sonic - Cement Bond Index in Steel Casing,Approved,,08-12-2020,"4.1,4.2"
+FWS-DTP,Full Waveform Sonic - dtp,Approved,,08-12-2020,"4.1,4.2"
+FWS-DTS,Full Waveform Sonic - dts,Approved,,08-12-2020,"4.1,4.2"
+FWS-PDEL,Full Waveform Sonic - Propagation Delay,Approved,,08-12-2020,"4.1,4.2"
+FWS-PORA,Full Waveform Sonic - Poisson's Ratio,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR1T1,Full Waveform Sonic - P-Wave TT Rx1-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR1T2,Full Waveform Sonic - P-Wave TT Rx1-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR2T1,Full Waveform Sonic - P-Wave TT Rx2-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR2T2,Full Waveform Sonic - P-Wave TT Rx2-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR3T1,Full Waveform Sonic - P-Wave TT Rx3-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR3T2,Full Waveform Sonic - P-Wave TT Rx3-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR4T1,Full Waveform Sonic - P-Wave TT Rx4-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-PTR4T2,Full Waveform Sonic - P-Wave TT Rx4-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-PWV,Full Waveform Sonic - P-Wave Velocity,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR1T1,Full Waveform Sonic - S-Wave TT Rx1-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR1T2,Full Waveform Sonic - S-Wave TT Rx1-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR2T1,Full Waveform Sonic - S-Wave TT Rx2-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR2T2,Full Waveform Sonic - S-Wave TT Rx2-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR3T1,Full Waveform Sonic - S-Wave TT Rx3-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR3T2,Full Waveform Sonic - S-Wave TT Rx3-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR4T1,Full Waveform Sonic - S-Wave TT Rx4-Tx1,Approved,,08-12-2020,"4.1,4.2"
+FWS-STR4T2,Full Waveform Sonic - S-Wave TT Rx4-Tx2,Approved,,08-12-2020,"4.1,4.2"
+FWS-SWV,Full Waveform Sonic - S-Wave Velocity,Approved,,08-12-2020,"4.1,4.2"
+FWS-VRAT,Full Waveform Sonic - Vp/Vs Ratio,Approved,,08-12-2020,"4.1,4.2"
+GGD-BD,Dual Gamma - Bulk Density,Approved,,08-12-2020,"4.1,4.2"
+GGD-DL,Dual Gamma - Density Long,Approved,,08-12-2020,"4.1,4.2"
+GGD-DS,Dual Gamma - Density Short,Approved,,08-12-2020,"4.1,4.2"
+GGD-GL,Dual Gamma - Gamma Long,Approved,,08-12-2020,"4.1,4.2"
+GGD-GS,Dual Gamma - Gamma Short,Approved,,08-12-2020,"4.1,4.2"
+GGD-SC,Dual Gamma - Sidewall Caliper,Approved,,08-12-2020,"4.1,4.2"
+HPFL-FR,Heat Pulse Flowmeter - Flow Rate,Approved,,08-12-2020,"4.1,4.2"
+HPFL-TTD,Heat Pulse Flowmeter - Thermistor Temperature Difference,Approved,,08-12-2020,"4.1,4.2"
+HPRL-TCD,Heat Pulse Flowmeter - Time from Capacitor Discharge,Approved,,08-12-2020,"4.1,4.2"
+IPFL-CS,Impeller/Spinner Flowmeter - Logging / Cable Speed,Approved,,08-12-2020,"4.1,4.2"
+IPFL-DRAT,Impeller/Spinner Flowmeter - rotation rate - Dynamic,Approved,,08-12-2020,"4.1,4.2"
+IPFL-FR,Impeller/Spinner Flowmeter - Flow Rate,Approved,,08-12-2020,"4.1,4.2"
+IPFL-SRAT,Impeller/Spinner Flowmeter - rotation rate - Stationary,Approved,,08-12-2020,"4.1,4.2"
+MSUS-FS,Magnetic Susceptibility - Formation Susceptibility,Approved,,08-12-2020,"4.1,4.2"
+NGR-CV,Natural Gamma - Clay Volume NGR,Approved,,08-12-2020,"4.1,4.2"
+NGR-NGA,Natural Gamma - Total Natural Gamma in API,Approved,,08-12-2020,"4.1,4.2"
+NGR-NGC,Natural Gamma - Total natural Gamma in counts/s,Approved,,08-12-2020,"4.1,4.2"
+NTR-LPPC,Dual Neutron - Limestone Equivalent Porosity,Approved,,08-12-2020,"4.1,4.2"
+NTR-LPPU,Dual Neutron - Limestone Equivalent Porosity,Approved,,08-12-2020,"4.1,4.2"
+NTR-NPPC,Dual Neutron - Neutron Porosity,Approved,,08-12-2020,"4.1,4.2"
+NTR-NPPU,Dual Neutron - Neutron Porosity q,Approved,,08-12-2020,"4.1,4.2"
+NTR-SPPC,Dual Neutron - Sandstone Equivalent Porosity,Approved,,08-12-2020,"4.1,4.2"
+NTR-SPPU,Dual Neutron - Sandstone Equivalent Porosity,Approved,,08-12-2020,"4.1,4.2"
+OBI-BAM,Optical Borehole Imager Borehole Azimuth Magnetic Sensor,Approved,,08-12-2020,"4.1,4.2"
+OBI-BT,Optical Borehole Imager Borehole Tilt,Approved,,08-12-2020,"4.1,4.2"
+OBI-EAST,Optical Borehole Imager Easting,Approved,,08-12-2020,"4.1,4.2"
+OBI-MF,Optical Borehole Imager Magnetic Field,Approved,,08-12-2020,"4.1,4.2"
+OBI-NORT,Optical Borehole Imager Northing,Approved,,08-12-2020,"4.1,4.2"
+OBI-SAM,Optical Borehole Imager Structure Azimuth Magnetic,Approved,,08-12-2020,"4.1,4.2"
+OBI-SDIP,Optical Borehole Imager Structure Dip,Approved,,08-12-2020,"4.1,4.2"
+OBI-TVD,Optical Borehole Imager TVD,Approved,,08-12-2020,"4.1,4.2"
+PSL-PWV,P & S Wave Suspension - Logger P-Wave Velocity,Approved,,08-12-2020,"4.1,4.2"
+PSL-SWV,P & S Wave Suspension - S-Wave Velocity,Approved,,08-12-2020,"4.1,4.2"
+SGR-CCV,Spectral Gamma - Corrected Clay Volume SGR (excl. Uranium),Approved,,08-12-2020,"4.1,4.2"
+SGR-CV,Spectral Gamma - Clay Volume SGR,Approved,,08-12-2020,"4.1,4.2"
+SGR-PC,Spectral Gamma - Potassium Concentration,Approved,,08-12-2020,"4.1,4.2"
+SGR-TC,Spectral Gamma - Thorium Concentration,Approved,,08-12-2020,"4.1,4.2"
+SGR-TGA,Spectral Gamma - Total Gamma in API,Approved,,08-12-2020,"4.1,4.2"
+SGR-TGC,Spectral Gamma - Total Gamma in counts/s,Approved,,08-12-2020,"4.1,4.2"
+SGR-UC,Spectral Gamma - Uranium Concentration,Approved,,08-12-2020,"4.1,4.2"

@@ -1,7 +1,10 @@
 """Check an AGS 4.2 file against the CSV rules (section 4.1.1) and the AGS code lists.
 
 Covers Rules 1-7, 9, 10a-c, 11c, 12-19 for the groups in dictionary.py. Groups outside that
-subset get the structural checks only, with a warning.
+subset get the structural checks only, with a warning. Codes and units are also checked against
+the status of each entry in the official AGS lists (reference.py).
+
+Imports nothing else from eddqc, so the dashboard can copy it unchanged.
 """
 from __future__ import annotations
 
@@ -16,7 +19,7 @@ from .reference import Reference, load_reference
 @dataclass
 class Issue:
     rule: str
-    severity: str          # ERROR or WARNING
+    severity: str          # ERROR, WARNING or INFO
     group: str
     line: int
     message: str
@@ -25,13 +28,31 @@ class Issue:
         return f"{self.severity} {self.rule} line {self.line} [{self.group}]: {self.message}"
 
 
-def check_text(text: str, ref: Reference | None = None) -> tuple[dict[str, Group], list[Issue]]:
+# What each AGS list status means for a file that uses the code or unit.
+STATUS_SEVERITY = {"Accepted": ("INFO", "is Accepted by the AGS but not yet marked Approved"),
+                   "Proposed": ("WARNING", "is only Proposed, not yet approved by the AGS"),
+                   "Deprecated": ("WARNING", "is Deprecated by the AGS"),
+                   "Declined": ("ERROR", "was Declined by the AGS")}
+VERSION_ERROR = "Only AGS 4.2 files are accepted"
+
+
+def check_text(text: str, ref: Reference | None = None,
+               strict_version: bool = False) -> tuple[dict[str, Group], list[Issue]]:
+    """strict_version=True rejects any file that does not declare TRAN_AGS 4.2."""
     groups, parse_issues = parse(text)
     issues = [Issue(p.rule, "ERROR", "", p.line, p.message) for p in parse_issues]
-    return groups, issues + check_groups(groups, ref)
+    return groups, issues + check_groups(groups, ref, strict_version)
 
 
-def check_groups(groups: dict[str, Group], ref: Reference | None = None) -> list[Issue]:
+def file_version(groups: dict[str, Group]) -> str:
+    tran = groups.get("TRAN")
+    if tran and "TRAN_AGS" in tran.headings and tran.rows:
+        return tran.rows[0][tran.headings.index("TRAN_AGS")].strip()
+    return ""
+
+
+def check_groups(groups: dict[str, Group], ref: Reference | None = None,
+                 strict_version: bool = False) -> list[Issue]:
     ref = ref or load_reference()
     out: list[Issue] = []
     err = lambda rule, g, line, msg: out.append(Issue(rule, "ERROR", g, line, msg))
@@ -44,14 +65,18 @@ def check_groups(groups: dict[str, Group], ref: Reference | None = None) -> list
     for name, rule in (("PROJ", "Rule 13"), ("TRAN", "Rule 14")):
         if name in groups and len(groups[name].rows) != 1:
             err(rule, name, groups[name].line, f"{name} must contain exactly one DATA row")
-    if "TRAN" in groups and "TRAN_AGS" in groups["TRAN"].headings and groups["TRAN"].rows:
-        version = groups["TRAN"].rows[0][groups["TRAN"].headings.index("TRAN_AGS")]
-        if not version.startswith("4.2"):
-            warn("TRAN_AGS", "TRAN", groups["TRAN"].line, f"File declares AGS {version}; checked against 4.2")
+    version, tran_line = file_version(groups), groups["TRAN"].line if "TRAN" in groups else 0
+    if not version.startswith("4.2"):
+        declared = f"the file declares AGS {version}" if version else "the file does not declare its AGS version"
+        if strict_version:
+            err("Version", "TRAN", tran_line, f"{VERSION_ERROR}; {declared} (TRAN_AGS)")
+        else:
+            warn("Version", "TRAN", tran_line, f"{declared[0].upper()}{declared[1:]}; checked against AGS 4.2")
 
     dict_rows = _records(groups.get("DICT"))
     user = {(r.get("DICT_GRP"), r.get("DICT_HDNG")): r for r in dict_rows if r.get("DICT_TYPE") == "HEADING"}
     abbr = {(r.get("ABBR_HDNG"), r.get("ABBR_CODE")): r for r in _records(groups.get("ABBR"))}
+    unit_line = {r.get("UNIT_UNIT"): r["_line"] for r in _records(groups.get("UNIT"))}
     units = {r.get("UNIT_UNIT") for r in _records(groups.get("UNIT"))}
     types = {r.get("TYPE_TYPE") for r in _records(groups.get("TYPE"))}
 
@@ -138,17 +163,37 @@ def check_groups(groups: dict[str, Group], ref: Reference | None = None) -> list
                     if row[idx[h]] and not _link_ok(row[idx[h]], groups):
                         err("Rule 11c", g.name, line, f"{h} {row[idx[h]]!r} does not match a record")
 
+    if not ref.official:
+        return out
+    # ABBR_LIST other than AGS4 (or blank) marks a project code, which need not be in the AGS list.
     for (heading, code), r in abbr.items():
-        if r.get("ABBR_LIST") == "AGS4" and ref.official and ref.abbr_desc(heading, code) is None:
-            err("Rule 16", "ABBR", 0, f"{heading} code {code!r} is marked AGS4 but is not an approved AGS code")
+        listed = r.get("ABBR_LIST", "")
+        if listed not in ("", "AGS4"):
+            continue
+        entry = ref.abbr_entry(heading, code)
+        if entry is None:
+            if listed == "AGS4":
+                err("Rule 16", "ABBR", r["_line"], f"{heading} code {code!r} is marked AGS4 but is not in the AGS list")
+        elif entry.status in STATUS_SEVERITY:
+            sev, text = STATUS_SEVERITY[entry.status]
+            out.append(Issue("Rule 16", sev, "ABBR", r["_line"],
+                             f"{heading} code {code!r} ({entry.description}) {text}" + _note(entry)))
     for u in units:
-        if u not in ref.units:
-            warn("Rule 15", "UNIT", 0, f"Unit {u!r} is not in the AGS unit list")
+        entry = ref.units.get(u)
+        if entry is None:
+            warn("Rule 15", "UNIT", unit_line.get(u, 0), f"Unit {u!r} is not in the AGS unit list")
+        elif entry.status in STATUS_SEVERITY:
+            sev, text = STATUS_SEVERITY[entry.status]
+            out.append(Issue("Rule 15", sev, "UNIT", unit_line.get(u, 0), f"Unit {u!r} {text}" + _note(entry)))
     return out
 
 
+def _note(entry) -> str:
+    return f". AGS note: {entry.comment}" if entry.comment else ""
+
+
 def _records(g: Group | None) -> list[dict]:
-    return [dict(zip(g.headings, r)) for r in g.rows] if g else []
+    return [{**dict(zip(g.headings, r)), "_line": line} for r, line in zip(g.rows, g.lines or [0] * len(g.rows))]         if g else []
 
 
 def _link_ok(value: str, groups: dict[str, Group]) -> bool:

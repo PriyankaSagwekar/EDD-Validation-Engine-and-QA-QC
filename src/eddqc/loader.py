@@ -28,7 +28,8 @@ def _norm(col: str) -> str:
 
 
 def read_ags(path: Path) -> pd.DataFrame:
-    """An AGS 4.2 file as EDD rows. Files that fail the AGS checks are rejected before load."""
+    """An AGS file as EDD rows. Files that fail the AGS checks are rejected before load. Files from
+    AGS 4.0 and 4.1 are accepted with a version warning (the dashboard viewer accepts 4.2 only)."""
     from .ags import ags_to_edd, check_text, errors
     groups, issues = check_text(path.read_bytes().decode("utf-8", errors="replace"))
     if errors(issues):

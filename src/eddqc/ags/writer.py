@@ -1,4 +1,5 @@
-"""EDD rows -> AGS 4.2 groups (PROJ, TRAN, TYPE, UNIT, ABBR, DICT, LOCA, MONG, SAMP, CHOC, ELRG)."""
+"""EDD rows -> AGS 4.2 groups (PROJ, TRAN, TYPE, UNIT, ABBR, DICT, LOCA, GEOL, WSTG, WSTD, MONG, MOND,
+SAMP, CHOC, ELRG)."""
 from __future__ import annotations
 
 import re
@@ -16,7 +17,13 @@ PROJECT_LIST = R.SITE["site_code"]           # ABBR_LIST value for project-defin
 QC_LOCATIONS = {"FIELDQC": "Notional location for field QC samples with no sampling point",
                 "LABQC": "Notional location for laboratory QC samples"}
 PROJECT_ABBR = {("LOCA_TYPE", "QC"): "Notional location for QC samples (project code)",
-                **{("ELRG_CODE", c): d for c, d in R.AGS_PROJECT_CODES.items()}}
+                **{("ELRG_CODE", c): d for c, d in R.AGS_PROJECT_CODES.items()},
+                **{("GEOL_GEOL", c): d for c, d in R.GEOLOGY_CODES.items()}}
+# Used only when the official lists are absent: the analyte codes this project maps to AGS.
+FALLBACK_ELRG = {**{cas: name for cas, name, *_ in R.ANALYTES
+                    if cas not in R.AGS_ELRG_CODE and cas not in R.AGS_PROJECT_CODES},
+                 **{code: ours for ours, code in R.AGS_ELRG_CODE.items()}}
+SITE_TABLES = ("geology", "strikes", "strike_readings", "levels")
 LOCA_TYPE = {"BH": "CP", "MW": "CP", "TP": "TP"}
 LOCA_NAME = {"BH": "Borehole", "MW": "Monitoring well", "TP": "Trial pit"}
 TORD = {"T": "Total", "D": "Dissolved"}
@@ -59,9 +66,12 @@ def build_group(name: str, records: list[dict]) -> Group:
 
 
 def edd_to_groups(df: pd.DataFrame, locations: pd.DataFrame, include_lab_qc: bool = False,
-                  strict: bool = True, ref: Reference | None = None) -> list[Group]:
+                  strict: bool = True, ref: Reference | None = None,
+                  site: dict[str, pd.DataFrame] | None = None) -> list[Group]:
     """df: EDD rows as text (edd_schema columns, optionally validator_qualifier / validator_reason).
-    locations: ref_Location rows. strict=False declares unknown codes as project codes instead of failing."""
+    locations: ref_Location rows. strict=False declares unknown codes as project codes instead of failing.
+    site: optional ground investigation tables (SITE_TABLES, columns as the ref_ tables), written as
+    GEOL, WSTG, WSTD and MOND for the locations in the file."""
     ref = ref or load_reference()
     df = df.fillna("").astype(str)
     if not include_lab_qc:
@@ -140,8 +150,11 @@ def edd_to_groups(df: pd.DataFrame, locations: pd.DataFrame, include_lab_qc: boo
                      "ELRG_PH": r.sample_ph, "ELRG_EXDT": r.extraction_date,
                      "ELRG_SPKA": r.spike_added, "ELRG_PREC": r.percent_recovery})
 
+    geol, wstg, wstd, mond = _site_records(site or {}, [l["LOCA_ID"] for l in loca],
+                                           [m["LOCA_ID"] for m in mong])
     data = [build_group(n, recs) for n, recs in
-            (("LOCA", loca), ("MONG", mong), ("SAMP", samp), ("CHOC", choc), ("ELRG", elrg)) if recs]
+            (("LOCA", loca), ("GEOL", geol), ("WSTG", wstg), ("WSTD", wstd), ("MONG", mong), ("MOND", mond),
+             ("SAMP", samp), ("CHOC", choc), ("ELRG", elrg)) if recs]
     used_user = {(g.name, h) for g in data for h in g.headings if spec(g.name, h) and
                  (g.name, h) in {(ug, uh) for ug, uh, *_ in USER_HEADINGS}}
     dict_rows = [{"DICT_TYPE": "HEADING", "DICT_GRP": g, "DICT_HDNG": h, "DICT_STAT": "OTHER",
@@ -163,6 +176,24 @@ def edd_to_groups(df: pd.DataFrame, locations: pd.DataFrame, include_lab_qc: boo
     return [proj, tran, typ, unit, abbr, *groups[2:]]
 
 
+def _site_records(site: dict[str, pd.DataFrame], locs: list[str], wells: list[str]) -> tuple[list, ...]:
+    def rows(name: str, keep: list[str]) -> list:
+        df = site.get(name)
+        return [] if df is None else [r for r in df.itertuples() if r.location_code in keep]
+    geol = [{"LOCA_ID": r.location_code, "GEOL_TOP": r.depth_top_m, "GEOL_BASE": r.depth_base_m,
+             "GEOL_DESC": r.description, "GEOL_LEG": r.legend_code, "GEOL_GEOL": r.geology_code,
+             "GEOL_FORM": r.formation} for r in rows("geology", locs)]
+    wstg = [{"LOCA_ID": r.location_code, "WSTG_DPTH": r.strike_depth_m, "WSTG_DTIM": r.strike_datetime,
+             "WSTG_REM": r.remark} for r in rows("strikes", locs)]
+    wstd = [{"LOCA_ID": r.location_code, "WSTG_DPTH": r.strike_depth_m, "WSTD_NMIN": r.minutes_after,
+             "WSTD_POST": r.depth_m} for r in rows("strike_readings", locs)]
+    mond = [{"LOCA_ID": r.location_code, "MONG_ID": "P1", "MONG_DIS": "0", "MOND_DTIM": r.reading_datetime,
+             "MOND_TYPE": "WDEP", "MOND_REF": r.reading_ref, "MOND_RDNG": r.depth_to_water_m, "MOND_UNIT": "m",
+             "MOND_METH": r.method, "MOND_REM": "Depth below ground level, before purging"}
+            for r in rows("levels", wells)]
+    return geol, wstg, wstd, mond
+
+
 def _values(groups: list[Group], kind: str) -> list[tuple[str, str]]:
     found = {}
     for g in groups:
@@ -178,11 +209,15 @@ def _abbr_group(groups: list[Group], ref: Reference, strict: bool) -> Group:
     rows = []
     for heading, code in _values(groups, "PA"):
         desc, source = ref.abbr_desc(heading, code), "AGS4"
+        if desc is None and not ref.official and heading == "ELRG_CODE":
+            desc = FALLBACK_ELRG.get(code)
         if desc is None and (heading, code) in PROJECT_ABBR:
             desc, source = PROJECT_ABBR[(heading, code)], PROJECT_LIST
         if desc is None:
             if strict:
-                raise AGSWriteError(f"{heading} code {code!r} is not an approved AGS code")
+                entry = ref.abbr_entry(heading, code)
+                status = f" (its AGS status is {entry.status})" if entry else ""
+                raise AGSWriteError(f"{heading} code {code!r} is not an approved AGS code{status}")
             desc, source = f"Project code {code}", PROJECT_LIST
         rows.append({"ABBR_HDNG": heading, "ABBR_CODE": code, "ABBR_DESC": desc, "ABBR_LIST": source})
     return build_group("ABBR", rows)
@@ -193,7 +228,7 @@ def _unit_group(groups: list[Group], ref: Reference, strict: bool) -> Group:
     units.update(dict.fromkeys(v for _, v in _values(groups, "PU")))
     rows = []
     for u in units:
-        desc = ref.units.get(u)
+        desc = ref.unit_desc(u)
         if desc is None:
             if strict:
                 raise AGSWriteError(f"Unit {u!r} is not in the AGS unit list (units are case-sensitive)")

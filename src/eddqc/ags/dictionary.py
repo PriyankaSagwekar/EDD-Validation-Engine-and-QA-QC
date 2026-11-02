@@ -36,6 +36,22 @@ GROUPS: dict[str, list[tuple[str, str, str, str]]] = {
              ("PIPE_REF", "", "", "X"), ("MONG_DATE", "", "yyyy-mm-dd", "DT"), ("MONG_TYPE", "", "", "PA"),
              ("MONG_DETL", "", "", "X"), ("MONG_TRZ", "", "m", "2DP"), ("MONG_BRZ", "", "m", "2DP"),
              ("MONG_REM", "", "", "X"), ("MONG_CONT", "", "", "X"), ("FILE_FSET", "", "", "X")],
+    "MOND": [("LOCA_ID", "*", "", "ID"), ("MONG_ID", "*", "", "X"), ("MONG_DIS", "*", "m", "2DP"),
+             ("MOND_DTIM", "*", "yyyy-mm-ddThh:mm", "DT"), ("MOND_TYPE", "*", "", "PA"), ("MOND_REF", "*", "", "X"),
+             ("MOND_INST", "", "", "X"), ("MOND_RDNG", "", "", "XN"), ("MOND_UNIT", "R", "", "PU"),
+             ("MOND_METH", "", "", "X"), ("MOND_LIM", "", "", "U"), ("MOND_ULIM", "", "", "U"),
+             ("MOND_NAME", "", "", "X"), ("MOND_CRED", "", "", "X"), ("MOND_CONT", "", "", "X"),
+             ("MOND_REM", "", "", "X"), ("FILE_FSET", "", "", "X")],
+    "GEOL": [("LOCA_ID", "*", "", "ID"), ("GEOL_TOP", "*", "m", "2DP"), ("GEOL_BASE", "*", "m", "2DP"),
+             ("GEOL_DESC", "", "", "X"), ("GEOL_LEG", "", "", "PA"), ("GEOL_GEOL", "", "", "PA"),
+             ("GEOL_GEO2", "", "", "PA"), ("GEOL_STAT", "", "", "X"), ("GEOL_BGS", "", "", "PA"),
+             ("GEOL_FORM", "", "", "X"), ("GEOL_REM", "", "", "X"), ("FILE_FSET", "", "", "X"),
+             ("GEOL_BNDF", "", "", "PA")],
+    "WSTG": [("LOCA_ID", "*", "", "ID"), ("WSTG_DPTH", "*", "m", "2DP"),
+             ("WSTG_DTIM", "", "yyyy-mm-ddThh:mm", "DT"), ("WSTG_SEAL", "", "m", "2DP"),
+             ("WSTG_CAS", "", "m", "2DP"), ("WSTG_REM", "", "", "X"), ("FILE_FSET", "", "", "X")],
+    "WSTD": [("LOCA_ID", "*", "", "ID"), ("WSTG_DPTH", "*", "m", "2DP"), ("WSTD_NMIN", "*", "min", "0DP"),
+             ("WSTD_POST", "", "m", "2DP"), ("WSTD_REM", "", "", "X"), ("FILE_FSET", "", "", "X")],
     "SAMP": [*SAMP_KEYS, ("SAMP_BASE", "", "m", "2DP"), ("SAMP_DTIM", "", "yyyy-mm-ddThh:mm", "DT"),
              ("SAMP_CONT", "", "", "X"), ("SAMP_PREP", "", "", "X"), ("SAMP_TECH", "", "", "X"),
              ("SAMP_MATX", "", "", "X"), ("SAMP_TYPC", "", "", "X"), ("SAMP_WHO", "", "", "X"),
@@ -66,7 +82,8 @@ GROUPS: dict[str, list[tuple[str, str, str, str]]] = {
 }
 
 # Parent group of each data group (section 3.1). Child key values must exist in the parent (Rule 10c).
-PARENT = {"MONG": "LOCA", "SAMP": "LOCA", "CHOC": "SAMP", "ELRG": "SAMP"}
+PARENT = {"MONG": "LOCA", "MOND": "MONG", "GEOL": "LOCA", "WSTG": "LOCA", "WSTD": "WSTG",
+          "SAMP": "LOCA", "CHOC": "SAMP", "ELRG": "SAMP"}
 
 # User-defined headings this project adds for data AGS 4.2 has no heading for (Rules 9, 18, 19).
 # (group, heading, unit, type, description). An empty unit is written as UNITLESS in DICT.

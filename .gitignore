@@ -13,5 +13,9 @@ data/processed/*
 data/rejected/
 data/answer_keys/
 
-# Licensed AGS reference material (registered-user download)
-docs/reference/
+# AGS code lists (CSV) are committed; the AGS 4.2 PDF and anything else stays local
+docs/reference/*
+!docs/reference/ags/
+docs/reference/ags/*
+!docs/reference/ags/*.csv
+!docs/reference/ags/SOURCE.md

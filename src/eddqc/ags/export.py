@@ -1,4 +1,5 @@
-"""Export promoted (validated) master data from SQL Server as an AGS 4.2 file."""
+"""Export promoted (validated) master data from SQL Server as an AGS 4.2 file, with the
+ground investigation data (geology, water strikes, water levels) of the locations in it."""
 from __future__ import annotations
 
 from datetime import date
@@ -29,6 +30,13 @@ LEFT JOIN dbo.dt_Receipt rc ON rc.coc_id = s.coc_id AND rc.cooler_id = s.cooler_
 WHERE (:batch IS NULL OR r.batch_id = :batch)
 ORDER BY r.batch_id, r.source_row_no
 """
+SITE_QUERIES = {
+    "geology": "SELECT * FROM dbo.ref_Geology ORDER BY location_code, depth_top_m",
+    "strikes": "SELECT * FROM dbo.ref_Water_Strike ORDER BY location_code, strike_depth_m",
+    "strike_readings": "SELECT * FROM dbo.ref_Water_Strike_Reading ORDER BY location_code, strike_depth_m, "
+                       "minutes_after",
+    "levels": "SELECT * FROM dbo.ref_Water_Level ORDER BY location_code, reading_datetime",
+}
 
 
 def _text(v) -> str:
@@ -48,7 +56,9 @@ def export_from_db(engine: Engine, out_dir: Path, batch: int | None = None,
         raise ValueError("No promoted results to export" + (f" for batch {batch}" if batch else ""))
     df = df.astype(object).apply(lambda s: s.map(_text))
     locations = read_sql(engine, "SELECT * FROM dbo.ref_Location")
-    text = to_text(edd_to_groups(df, locations, include_lab_qc=include_lab_qc))
+    site = {name: read_sql(engine, sql).astype(object).apply(lambda s: s.map(_text))
+            for name, sql in SITE_QUERIES.items()}
+    text = to_text(edd_to_groups(df, locations, include_lab_qc=include_lab_qc, site=site))
     _, issues = check_text(text)
     if errors(issues):
         raise ValueError("Export failed the AGS checks:\n" + "\n".join(map(str, errors(issues)[:10])))

@@ -8,6 +8,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from . import refdata as R
+from . import site_investigation as SI
 
 
 def reference_tables() -> dict[str, tuple[list[str], list[tuple]]]:
@@ -58,6 +59,14 @@ def reference_tables() -> dict[str, tuple[list[str], list[tuple]]]:
                             [(d, c, desc) for d, codes in R.VALID_VALUES.items() for c, desc in codes.items()])
     t["qc_Rule"] = (["rule_id", "family", "rule_name", "severity", "default_qualifier", "description"],
                     list(R.RULES))
+
+    strikes, readings = SI.water_strikes()
+    t["ref_Geology"] = (["location_code", "depth_top_m", "depth_base_m", "legend_code", "geology_code",
+                         "description", "formation"], SI.geology())
+    t["ref_Water_Strike"] = (["location_code", "strike_depth_m", "strike_datetime", "remark"], strikes)
+    t["ref_Water_Strike_Reading"] = (["location_code", "strike_depth_m", "minutes_after", "depth_m"], readings)
+    t["ref_Water_Level"] = (["location_code", "reading_datetime", "reading_ref", "depth_to_water_m", "method"],
+                            SI.water_levels())
     return t
 
 

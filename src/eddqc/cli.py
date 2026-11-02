@@ -137,11 +137,14 @@ def cmd_ags_export(args, s):
 
 def cmd_ags_check(args, s):
     from .ags import check_text, errors
-    _, issues = check_text(Path(args.file).read_bytes().decode("utf-8", errors="replace"))
+    from .ags.reference import load_reference
+    print(load_reference().summary())
+    _, issues = check_text(Path(args.file).read_bytes().decode("utf-8", errors="replace"),
+                           strict_version=args.strict)
     for i in issues:
         print(i)
     n = len(errors(issues))
-    print(f"{args.file}: {n} error(s), {len(issues) - n} warning(s)")
+    print(f"{args.file}: {n} error(s), {len(issues) - n} warning(s) or note(s)")
     return 1 if n else 0
 
 
@@ -198,6 +201,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     x = sub.add_parser("ags-check", help="check an AGS file against the AGS 4.2 rules and code lists")
     x.add_argument("file")
+    x.add_argument("--strict", action="store_true", help="reject files that are not AGS 4.2")
     x.set_defaults(func=cmd_ags_check)
 
     x = sub.add_parser("ags-import", help="load an AGS file into staging (same as load)")

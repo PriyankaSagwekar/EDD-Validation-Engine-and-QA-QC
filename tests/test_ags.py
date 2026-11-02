@@ -11,10 +11,20 @@ from eddqc.loader import EDDFormatError, read_edd
 from eddqc.seed import reference_tables
 
 
+def ref_frame(name):
+    cols, rows = reference_tables()[name]
+    return pd.DataFrame(rows, columns=cols)
+
+
 @pytest.fixture(scope="module")
 def locations():
-    cols, rows = reference_tables()["ref_Location"]
-    return pd.DataFrame(rows, columns=cols)
+    return ref_frame("ref_Location")
+
+
+@pytest.fixture(scope="module")
+def site():
+    return {"geology": ref_frame("ref_Geology"), "strikes": ref_frame("ref_Water_Strike"),
+            "strike_readings": ref_frame("ref_Water_Strike_Reading"), "levels": ref_frame("ref_Water_Level")}
 
 
 def to_ags(df, locations, **kw):
@@ -152,11 +162,84 @@ def test_loader_reads_ags_and_rejects_broken_files(clean_gw, locations, tmp_path
 
 def test_mapped_codes_are_approved_in_the_official_list():
     ref = load_reference()
-    if not ref.official:
-        pytest.skip("Official AGS code lists not present in docs/reference/ags")
+    assert ref.official, "the AGS code lists are committed in docs/reference/ags and must load"
     for ours, code in R.AGS_ELRG_CODE.items():
-        assert code in ref.elrg, (ours, code)
+        assert ref.abbr_desc("ELRG_CODE", code), (ours, code)
     standard = [cas for cas, *_ in R.ANALYTES if cas not in R.AGS_ELRG_CODE and cas not in R.AGS_PROJECT_CODES]
-    assert [c for c in standard if c not in ref.elrg] == []
+    assert [c for c in standard if not ref.abbr_desc("ELRG_CODE", c)] == []
     assert all(c not in ref.elrg for c in R.AGS_PROJECT_CODES)
-    assert all(u in ref.units for u in R.AGS_UNIT.values())
+    assert all(ref.unit_desc(u) for u in R.AGS_UNIT.values())
+    assert all(ref.abbr_desc("GEOL_LEG", leg) for _, leg, *_ in R.STRATA)
+
+
+def test_ground_investigation_groups_are_written_and_pass_strict_check(clean_gw, locations, site):
+    text = to_ags(clean_gw, locations, site=site)
+    _, issues = ags.check_text(text, strict_version=True)
+    assert not ags.errors(issues), ags.errors(issues)[:5]
+    groups = ags.parse(text)[0]
+    wells = set(groups["MONG"].frame().LOCA_ID)
+    assert set(groups["GEOL"].frame().LOCA_ID) == set(groups["WSTG"].frame().LOCA_ID) == wells
+    mond = groups["MOND"].frame()
+    assert set(mond.MOND_TYPE) == {"WDEP"} and set(mond.MOND_UNIT) == {"m"} and len(mond) == 4 * len(wells)
+    abbr = group(text, "ABBR").set_index(["ABBR_HDNG", "ABBR_CODE"])
+    assert abbr.loc[("GEOL_GEOL", "RTD"), "ABBR_LIST"] == "RIE01"         # no approved list: project codes
+    assert abbr.loc[("GEOL_LEG", "501"), "ABBR_LIST"] == "AGS4"
+    assert len(roundtrip(text)) == len(clean_gw[~clean_gw.sample_type.isin(R.LAB_QC_TYPES)])
+
+
+def test_only_ags_42_passes_the_strict_version_check(clean_gw, locations, tmp_path):
+    text = to_ags(clean_gw, locations).replace('"4.2","Portfolio', '"4.1","Portfolio')
+    _, strict = ags.check_text(text, strict_version=True)
+    assert any(i.rule == "Version" and "Only AGS 4.2" in i.message for i in ags.errors(strict))
+    _, lenient = ags.check_text(text)
+    assert not ags.errors(lenient) and any(i.rule == "Version" for i in lenient)
+    no_tran = "\r\n".join(ln for ln in text.split("\r\n") if "TRAN" not in ln)
+    assert any(i.rule == "Version" for i in ags.errors(ags.check_text(no_tran, strict_version=True)[1]))
+    path = tmp_path / "old.ags"                                  # the pipeline still loads it
+    path.write_bytes(text.encode("ascii"))
+    assert len(read_edd(path)[0]) > 0
+
+
+def _write_lists(folder, datatype_name="DATATYPES.csv"):
+    folder.mkdir()
+    (folder / "ABBR.csv").write_text(
+        "Code ,Description,Status,Comments,Date,Version\n"
+        "ELRG_MATX,,,,,\nLIQUID,Liquid,Approved,,,\"4.0,4.1,4.2\"\nSOLID,Solid,Approved,,,4.2\n"
+        "WATER,Water,Declined,Use LIQUID,,\"4.1,4.2\"\nGAS,Gas,Proposed,,,4.2\nSLUDGE,Sludge,Approved,,,4.0\n")
+    (folder / "UNITS.csv").write_text('"Type","Unit","Description","Date","Comments","Status","Version"\n'
+                                      '"Conc","ug/l","micrograms per litre","","","Approved","4.2"\n'
+                                      '"Density","g/cm3","grams per cubic centimetre","","","Deprecated","4.2"\n')
+    (folder / "ELRG.csv").write_text('"Code","Date Last Reviewed","Status","Description","AGS Comments"\n'
+                                     '"71-43-2","","Approved","Benzene",""\n'
+                                     '"11-82-7","","Deprecated","Old","Use 110-82-7"\n'
+                                     '"999-99-9","","Accepted","New",""\n')
+    (folder / datatype_name).write_text('"Type","Desc","Notes","Version"\n"X","Text","","4.2"\n')
+
+
+def test_code_list_statuses_and_versions(tmp_path):
+    from eddqc.ags.model import Group
+    _write_lists(tmp_path / "lists")
+    ref = load_reference(tmp_path / "lists")
+    assert ref.official and ref.abbr_desc("ELRG_MATX", "LIQUID") == "Liquid"
+    assert ref.abbr_entry("ELRG_MATX", "SLUDGE") is None                 # AGS 4.0 only: not read
+    assert ref.abbr_desc("ELRG_MATX", "WATER") is None
+    assert ref.abbr_entry("ELRG_MATX", "WATER").status == "Declined"
+    abbr = Group("ABBR", ["ABBR_HDNG", "ABBR_CODE", "ABBR_DESC", "ABBR_LIST"], [""] * 4, ["X"] * 4,
+                 [["ELRG_MATX", c, c, "AGS4"] for c in ("LIQUID", "WATER", "GAS", "UNKNOWN")] +
+                 [["ELRG_CODE", c, c, "AGS4"] for c in ("11-82-7", "999-99-9")], lines=list(range(10, 16)))
+    unit = Group("UNIT", ["UNIT_UNIT", "UNIT_DESC"], ["", ""], ["X", "X"],
+                 [["ug/l", "u"], ["g/cm3", "g"], ["furlong", "f"]], lines=[20, 21, 22])
+    issues = ags.check_groups({"ABBR": abbr, "UNIT": unit}, ref)
+    found = {(i.severity, i.line) for i in issues if i.rule in ("Rule 15", "Rule 16")}
+    assert found == {("ERROR", 11), ("WARNING", 12), ("ERROR", 13), ("WARNING", 14), ("INFO", 15),
+                     ("WARNING", 21), ("WARNING", 22)}
+    assert "Use LIQUID" in next(i.message for i in issues if i.line == 11)
+
+
+def test_code_list_loader_accepts_old_file_name_and_rejects_partial_folders(tmp_path):
+    _write_lists(tmp_path / "old", "DATATYPE.csv")
+    assert load_reference(tmp_path / "old").official
+    _write_lists(tmp_path / "partial")
+    (tmp_path / "partial" / "ELRG.csv").unlink()
+    with pytest.raises(FileNotFoundError, match="ELRG"):
+        load_reference(tmp_path / "partial")

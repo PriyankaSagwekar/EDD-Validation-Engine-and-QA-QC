@@ -45,6 +45,29 @@ MONITORING_WELLS = [loc[0] for loc in LOCATIONS if loc[1] == "MW"]
 SOIL_LOCATIONS = {"BH01": [0.5, 1.5, 3.0], "BH02": [0.5, 1.5, 3.0], "BH03": [0.5, 1.5, 3.0],
                   "TP01": [0.3, 1.2], "TP02": [0.3, 1.2]}
 
+# Ground model for the ground investigation logs (site_investigation.py), top to bottom:
+# geology code (project code), AGS legend code (GEOL_LEG), formation, description, base depth range m bgl.
+# Every well screen starts below the Alluvium, so it sits in the gravel aquifer or the mudstone.
+STRATA = [
+    ("MG", "102", "Made Ground",
+     "MADE GROUND: dark brown gravelly sand with brick, concrete and clinker fragments", (0.4, 1.2)),
+    ("ALV", "202", "Alluvium", "Soft to firm grey brown silty CLAY with occasional organic matter", (2.0, 2.8)),
+    ("RTD", "501", "River Terrace Deposits",
+     "Medium dense brown sandy GRAVEL of subrounded quartzite and sandstone", (6.5, 9.0)),
+    ("MDST", "801", "Pennine Coal Measures",
+     "Weathered grey MUDSTONE, recovered as stiff gravelly clay becoming weak mudstone", None),
+]
+GEOLOGY_CODES = {"MG": "Made Ground", "ALV": "Alluvium", "RTD": "River Terrace Deposits",
+                 "MDST": "Pennine Coal Measures mudstone"}
+DRILLING_START = "2025-10-06"          # first day of the ground investigation; one hole per working day
+GROUNDWATER = {
+    "strike_below_alluvium_m": 0.10,   # water is struck just into the gravel
+    "rise_m": (0.4, 0.9),              # sub-artesian rise under the clay
+    "seasonal_amplitude_m": 0.30,      # shallowest in February, deepest in August
+    "noise_m": 0.05,
+    "dip_method": "Electronic dip meter",
+}
+
 # cas_rn, name, group, is_surrogate, common_lab_contaminant, sum_into_cas
 ANALYTES = [
     # metals

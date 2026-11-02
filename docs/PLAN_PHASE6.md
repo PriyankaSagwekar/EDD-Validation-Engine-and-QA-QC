@@ -1,5 +1,7 @@
 # Plan: Phase 6 — Dashboard, ArcGIS maps and stretch development
 
+> **Superseded in part (2026-11-02):** the AGS code lists are now committed, not git-ignored, and the AGS viewer was added. See `docs/PLAN_AGS_VIEWER.md`. This file is kept as the record of the Phase 6 plan.
+
 ## Context
 Phases 1–5 of the EDD QA/QC engine are built and verified (17 tests pass). Phase 6 stretch items from `CLAUDE.md` are not started. The user wants a **public, clickable dashboard** for a portfolio, with **maps made in ArcGIS**, while the pipeline and its results stay **local**. Decisions made:
 - Dashboard in **Streamlit**, in a **separate repo** `C:\Users\priya\Desktop\EDD-QC-Dashboard`, hosted free on Streamlit Community Cloud.

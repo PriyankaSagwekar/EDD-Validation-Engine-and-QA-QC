@@ -27,7 +27,7 @@ flowchart LR
     G -- NO-GO --> I[Rejected,<br/>back to lab]
     H --> J[GIS package<br/>GeoPackage, EPSG:27700<br/>to ArcGIS]
     H --> K[Screening report<br/>DWS, EQS, GAC]
-    H --> L[AGS 4.2 export<br/>ELRG]
+    H --> L[AGS 4.2 export<br/>ELRG, GEOL, MOND]
     H --> M[Reporting views] --> N[DuckDB snapshot<br/>to Streamlit dashboard]
 ```
 
@@ -95,6 +95,7 @@ erDiagram
 | Layer | Tables | Purpose |
 |---|---|---|
 | Reference (`ref_`) | Site, Location, Lab, Analyte, Method, Method_Analyte, Surrogate_Limit, Spike_Limit, Screening_Criterion, Valid_Value | Lookup values and every QC limit. Locations carry British National Grid coordinates, final depth and well screen. |
+| Ground investigation (`ref_`) | Geology, Water_Strike, Water_Strike_Reading, Water_Level | Fictional borehole logs, water strikes with their rise, and groundwater dips at each monitoring round |
 | Staging (`stg_`) | Batch, Result | Raw EDD rows as received, plus the final qualifier and status from validation |
 | QC (`qc_`) | Rule, Run, Exception, Result_Qualifier | Rule catalogue, audit trail of each validation run, every finding and every qualifier applied |
 | Master (`dt_`) | Sample, Receipt, Test, Result | Validated data only |
@@ -116,7 +117,9 @@ Reporting views (`sql/07`, `sql/09`). The Excel reports, GIS package and dashboa
 
 The simulator creates a fictional site, Riverside Industrial Estate in West Yorkshire. It has 10 monitoring wells, 3 boreholes and 2 trial pits. There are four quarterly groundwater rounds and two soil investigation phases, giving six lab EDDs of about 850 to 900 rows each. The analytical suite is metals (total and dissolved), BTEX and chlorinated VOCs, speciated PAH-16 and TPH CWG bands. Every batch includes field duplicates, field or equipment blanks, trip blanks, method blanks, LCS and MS/MSD samples, plus surrogates. The concentrations follow a simple site model: a hydrocarbon plume around MW03 to MW05, a chlorinated solvent plume around MW07 to MW09, and made ground with metals and PAHs in shallow soils.
 
-The data are generated clean first, then specific defects are injected. Each injected defect is written to an answer key in `data/answer_keys/`, so the tests can prove the engine catches it.
+The ground investigation data follow a simple ground model: made ground over alluvial silty clay, over River Terrace gravel (the aquifer), over Coal Measures mudstone. Every well screen sits below the clay. Water is struck at the top of the gravel and rises under the clay, and each well is dipped before it is sampled, with groundwater shallowest in late winter. Layer depths vary by location from a fixed seed, so every run gives the same logs.
+
+The laboratory data are generated clean first, then specific defects are injected. Each injected defect is written to an answer key in `data/answer_keys/`, so the tests can prove the engine catches it.
 
 ### Results from the demonstration run
 
@@ -139,15 +142,36 @@ All 53 injected defects were caught. Clean files produce zero exceptions. Master
 `python -m eddqc screen` writes `data/reports/Screening_<set>.xlsx` for each criteria set: an illustrative UK drinking water standard (DWS) and freshwater EQS for groundwater, and a residential GAC for soil. Only usable results for primary samples are screened. Each result is classed as **Exceeds**, **Below**, **ND compliant**, or **ND inconclusive** when the reporting limit is above the criterion, because such a non-detect cannot show compliance. The primary set for each matrix also drives rule DET-04 and the criterion line on charts.
 
 ### AGS 4.2
-`python -m eddqc ags-export` writes the promoted data as AGS 4.2: PROJ, TRAN, TYPE, UNIT, ABBR, DICT, LOCA, MONG, SAMP, CHOC and ELRG groups (ERES was removed in 4.2). Determinand codes, abbreviations and units follow the AGS code lists, for example ELRG_CODE P1374 for m,p-xylenes and the case-sensitive unit `ug/l`. Cooler temperature, custody seal, pH, extraction date and spike data travel as user-defined headings declared in DICT. Every file is checked against the AGS 4.2 rules before it is written.
+`python -m eddqc ags-export` writes the promoted data as AGS 4.2:
+- **Laboratory results:** PROJ, TRAN, TYPE, UNIT, ABBR, DICT, LOCA, MONG, SAMP, CHOC and ELRG (ERES was removed in 4.2).
+- **Ground investigation data** for the same locations:
+  - GEOL: geology, with AGS legend codes such as 501 GRAVEL. The stratum codes have no approved AGS list, so they are declared as project codes.
+  - WSTG and WSTD: water strikes and their rise.
+  - MOND: depth-to-water dips, reading type `WDEP`.
 
-`.ags` files are also accepted as input (`load`, `ags-import`, `run-all`). They are checked first, converted to EDD rows and run through the same 36 rules, and exceptions point at the line in the AGS file. `python -m eddqc ags-check <file>` checks any AGS file. The official AGS code lists are a registered-user download, so they are not in this repo: place them in `docs/reference/ags/` to check against them, otherwise a built-in subset is used.
+Determinand codes, abbreviations and units follow the AGS code lists, for example ELRG_CODE P1374 for m,p-xylenes and the case-sensitive unit `ug/l`. Cooler temperature, custody seal, pH, extraction date and spike data travel as user-defined headings declared in DICT. Every file is checked against the AGS 4.2 rules before it is written.
+
+`.ags` files are also accepted as input (`load`, `ags-import`, `run-all`). They are checked first, converted to EDD rows and run through the same 36 rules, and exceptions point at the line in the AGS file. Files from AGS 4.0 and 4.1, including the old ERES results group, are still loaded, with a version warning.
+
+`python -m eddqc ags-check <file>` checks any AGS file. Add `--strict` to accept AGS 4.2 only. The AGS code lists (ABBR, UNITS, DATATYPES, ELRG) are in `docs/reference/ags/`, credited to the AGS in `SOURCE.md`. Only their AGS 4.2 rows are used, and each code or unit a file uses is reported by its AGS status:
+
+| AGS status | Reported as |
+|---|---|
+| Approved | No issue |
+| Accepted | Note |
+| Proposed | Warning |
+| Deprecated | Warning |
+| Declined | Error |
+
+The export itself writes only Approved codes, or project codes declared in ABBR.
+
+The [dashboard](https://github.com/PriyankaSagwekar/EDD-QC-Dashboard) has an AGS viewer page. It checks an uploaded AGS 4.2 file and draws a borehole log and groundwater level charts from it.
 
 ### GIS package and ArcGIS
 `gis-export` (also run by `run-all`) writes `data/gis/site_qc.gpkg` in British National Grid (EPSG:27700): QC status and screening points, plus time-series and screening tables that relate on `location_code`. [docs/ARCGIS_GUIDE.md](docs/ARCGIS_GUIDE.md) covers the ArcGIS Pro report figure and the ArcGIS Online maps embedded in the dashboard.
 
 ### Dashboard
-The [dashboard repo](https://github.com/PriyankaSagwekar/EDD-QC-Dashboard) holds a Streamlit app with six pages: overview, exceptions, batch detail, site map, results explorer and screening. Its `refresh_data.py` copies the reporting views from this database into a DuckDB file. The hosted app reads that snapshot and never connects to SQL Server.
+The [dashboard repo](https://github.com/PriyankaSagwekar/EDD-QC-Dashboard) holds a Streamlit app with seven pages: overview, exceptions, batch detail, site map, results explorer, screening and the AGS viewer. Its `refresh_data.py` copies the reporting views from this database into a DuckDB file. The hosted app reads that snapshot and never connects to SQL Server.
 
 ---
 
@@ -175,7 +199,7 @@ python -m eddqc promote --batch 1
 python -m eddqc gis-export
 python -m eddqc screen --set DWS
 python -m eddqc ags-export --include-lab-qc
-python -m eddqc ags-check data\ags\RIE01_20261102.ags
+python -m eddqc ags-check --strict data\ags\RIE01_20261102.ags
 python -m eddqc load path\to\lab_file.ags
 ```
 
@@ -195,19 +219,20 @@ The rule and AGS tests run without a database. The AGS tests round-trip all six 
 config/settings.toml        connection, paths, NO-GO threshold
 sql/                        01-09: database, tables, seed data, views, promotion procedure, dashboard views
 src/eddqc/
-  refdata.py                site, analytes, methods, limits, rule catalogue (source of the seed SQL)
+  refdata.py                site, analytes, methods, limits, ground model, rule catalogue (source of the seed SQL)
+  site_investigation.py     fictional geology logs, water strikes and groundwater dips
   simulate.py               EDD generator with defect injection and answer keys
   loader.py                 CSV/Excel/AGS reader, header aliases, staging load
   rules/                    one module per rule family, plus qualifier precedence
   engine.py                 runs the rules, writes exceptions and statuses
   report.py                 Excel QA/QC Exception Report
   screening.py              screening workbook per criteria set
-  ags/                      AGS 4.2 dictionary subset, writer, reader, checker, database export
+  ags/                      AGS 4.2 dictionary subset, writer, reader, checker, code lists, database export
   gis_export.py             location QC status (CSV, GeoJSON) and the ArcGIS GeoPackage
   cli.py                    command line
 tests/                      rule edge cases, answer-key recall, AGS round trips, SQL Server pipeline
 data/                       incoming, processed, rejected, reports, answer_keys, gis, ags
-docs/                       Phase 6 plan, ArcGIS guide
+docs/                       plans, ArcGIS guide, AGS code lists (reference/ags)
 ```
 
 ## Design choices
